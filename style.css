@@ -257,6 +257,332 @@ li:hover {
     font-size: 1.2rem;
 }
 
+.coverageHelpText {
+	font-size: 0.9rem;
+	color: #bbb;
+	max-width: 520px;
+	margin: 0 auto 10px;
+	text-align: center;
+	line-height: 1.35;
+}
+
+.coverageSubLabel {
+	width: 100%;
+	text-align: center;
+	font-size: 0.95rem;
+	color: #ccc;
+	margin-bottom: 6px;
+}
+
+.coverageMergedSuggestions {
+	margin-bottom: 14px;
+}
+
+.coverageSummaryFlag,
+.coverageFlag,
+.speciesCoverageFlag {
+	display: inline-block;
+	padding: 4px 10px;
+	border-radius: 999px;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.01em;
+	text-shadow: none;
+}
+
+.coverageSummaryFlag {
+	margin-top: 10px;
+}
+
+.coverageThreatMissing .typeWrapper {
+	border-color: #ff6b6b;
+	box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.28);
+}
+
+.coverageFlag {
+	margin: 4px auto 0;
+}
+
+.coverageFlagFull,
+.coverageSummaryFlagFull,
+.speciesCoverageFlagFull {
+	background: rgba(76, 175, 80, 0.18);
+	border: 1px solid rgba(129, 199, 132, 0.55);
+	color: #b9f6ca;
+}
+
+.coverageFlagPartial,
+.coverageSummaryFlagPartial,
+.speciesCoverageFlagPartial {
+	background: rgba(255, 193, 7, 0.14);
+	border: 1px solid rgba(255, 213, 79, 0.45);
+	color: #ffe082;
+}
+
+.coverageFlagNeutral {
+	background: rgba(144, 164, 174, 0.16);
+	border: 1px solid rgba(176, 190, 197, 0.4);
+	color: #cfd8dc;
+}
+
+.coveragePillRow, .coverageThreatAnswers, .offensiveChartTargets {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+}
+
+.coveragePillRowWrapper {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+}
+
+.coverageThreatLine {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	margin: 10px 0;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #3a3a3a;
+	max-width: 534px;
+}
+
+.coverageThreatLineActive {
+	background: rgba(255, 255, 255, 0.02);
+}
+
+.coverageThreatLineDisabled {
+	opacity: 0.7;
+}
+
+.coverageThreatLine:last-of-type {
+	border-bottom: none;
+}
+
+.coverageThreatLeft {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+	min-width: 120px;
+}
+
+.coverageThreatAnswers,
+.coverageThreatMoves {
+	flex: 1 1 180px;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+	gap: 6px;
+}
+
+.coverageThreatMult {
+	font-size: 0.85rem;
+	color: #f0a030;
+}
+
+.coverageSectionLabel {
+	font-size: 0.82rem;
+	font-weight: 700;
+	color: #bbb;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.coverageMovesWrapper {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 6px;
+}
+
+.coverageMoveChip {
+	padding: 4px 10px;
+	border-radius: 999px;
+	background: #232629;
+	border: 1px solid #4a4f55;
+	color: #f1f1f1;
+	font-size: 0.82rem;
+}
+
+.coverageMoveChipTrigger {
+	position: relative;
+	cursor: help;
+}
+
+.coverageMoveChipTrigger::after,
+.coverageMoveChipTrigger::before {
+	display: none;
+}
+
+.coverageMoveHoverCard {
+	position: absolute;
+	left: 50%;
+	bottom: calc(100% + 10px);
+	transform: translateX(-50%);
+	width: 320px;
+	max-width: min(320px, 80vw);
+	padding: 10px 12px 12px;
+	border-radius: 12px;
+	background: rgba(33, 37, 41, 0.98);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.42);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 120ms ease;
+	z-index: 35;
+}
+
+.coverageMoveChipTrigger:hover .coverageMoveHoverCard {
+	opacity: 1;
+}
+
+.coverageMoveHoverHeader,
+.coverageMoveHoverValues {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	align-items: center;
+	justify-items: center;
+	column-gap: 8px;
+}
+
+.coverageMoveHoverHeader {
+	margin-bottom: 8px;
+}
+
+.coverageMoveHoverHeading {
+	font-size: 0.78rem;
+	font-weight: 700;
+	color: #f2f2f2;
+}
+
+.coverageMoveHoverName {
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 500;
+	color: #f4f4f4;
+}
+
+.coverageMoveHoverTypeWrapper,
+.coverageMoveHoverSplitWrapper,
+.coverageMoveHoverStat {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 40px;
+}
+
+.coverageMoveHoverTypeWrapper .typeWrapper {
+	margin: 0;
+}
+
+.coverageMoveHoverSplit {
+	height: 28px;
+}
+
+.coverageMoveHoverStat {
+	font-size: 1rem;
+	color: #f5f5f5;
+}
+
+.coverageMoveHoverSource {
+	margin-top: 10px;
+	text-align: center;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	color: #d7ccc8;
+}
+
+.coverageMoveHoverDescription {
+	margin-top: 10px;
+	text-align: center;
+	font-size: 0.9rem;
+	line-height: 1.35;
+	color: #f0f0f0;
+	white-space: normal;
+}
+
+.coverageMovesDisabled {
+	opacity: 0.8;
+}
+
+.coverageMoveNote {
+	font-size: 0.82rem;
+	color: #8d9399;
+	font-style: italic;
+}
+
+.offensiveTypeChartDetails {
+	margin-top: 14px;
+	max-width: 534px;
+	text-align: center;
+}
+
+.offensiveChartSummary {
+	cursor: pointer;
+	list-style: none;
+	margin-bottom: 8px;
+}
+
+.offensiveTypeChartDetails summary::-webkit-details-marker {
+	display: none;
+}
+
+.offensiveChartRow {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	margin: 8px 0;
+	padding-bottom: 6px;
+	border-bottom: 1px solid #333;
+}
+
+.offensiveChartNone {
+	color: #666;
+	font-size: 0.9rem;
+	padding: 4px 8px;
+}
+
 .coverageMatchupsWrapper {
 	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
@@ -521,6 +847,14 @@ td.speciesNameWrapper {
 	font-weight: 700;
 }
 
+.speciesNameLabel {
+	font-weight: 700;
+}
+
+.speciesCoverageFlag {
+	margin-top: 4px;
+}
+
 .typeWrapper {
 	width: 70.3px;
 	padding: 2px;
@@ -535,6 +869,57 @@ td.speciesNameWrapper {
 
 .speciesAbilitiesWrapper, .infoAbilitiesWrapper, .infoChangelogAbilityWrapper {
 	font-style: italic;
+}
+
+.hoverTooltip {
+	position: relative;
+	cursor: help;
+}
+
+.hoverTooltip::after {
+	content: attr(data-tooltip);
+	position: absolute;
+	left: 50%;
+	bottom: calc(100% + 8px);
+	transform: translateX(-50%);
+	width: max-content;
+	max-width: min(320px, 80vw);
+	padding: 8px 10px;
+	border-radius: 10px;
+	background: rgba(18, 20, 24, 0.97);
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	color: #f3f4f6;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.82rem;
+	line-height: 1.35;
+	text-align: left;
+	white-space: normal;
+	box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 120ms ease;
+	z-index: 30;
+}
+
+.hoverTooltip::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: calc(100% + 2px);
+	transform: translateX(-50%);
+	border-width: 6px;
+	border-style: solid;
+	border-color: rgba(18, 20, 24, 0.97) transparent transparent transparent;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 120ms ease;
+	z-index: 30;
+}
+
+.hoverTooltip:hover::after,
+.hoverTooltip:hover::before {
+	opacity: 1;
 }
 
 .speciesAbilitiesHidden, .infoAbilitiesHidden, .infoChangelogAbility0, .infoChangelogUnique {

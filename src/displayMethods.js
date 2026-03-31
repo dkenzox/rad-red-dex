@@ -15,7 +15,7 @@ function displaySpeciesRow(tracker, mon) {
 	currentRow.append(
 		buildWrapper('td', 'speciesDexIDWrapper', mon.dexID),
 		buildWrapperSprite('td', 'speciesSprite', getSprite(mon.ID)),
-		buildWrapper('td', 'speciesNameWrapper', mon.key),
+		buildWrapperSpeciesName('td', 'speciesName', mon),
 		buildWrapperTypes('td', 'speciesTypes', types[mon.type[0]], types[mon.type[1]]),
 		buildWrapperAbilities('td', 'speciesAbilities', mon.abilities, mon.ID),
 		buildWrapperStat('td', 'speciesStat', 'HP', mon.stats[0]),
@@ -26,6 +26,22 @@ function displaySpeciesRow(tracker, mon) {
 		buildWrapperStat('td', 'speciesStat', 'Spe', mon.stats[3]),
 		buildWrapperStat('td', 'speciesStat', 'BST', mon.stats.reduce((total, y) => total += y, 0))
 	);
+}
+
+function buildWrapperSpeciesName(tag, className, mon) {
+	let wrapper = buildWrapper(tag, className + 'Wrapper');
+	wrapper.append(buildWrapper('div', className + 'Label', mon.key));
+
+	const summary = getCoverageSummary(mon);
+	if (summary.threats.length > 0) {
+		wrapper.append(buildWrapper(
+			'div',
+			`speciesCoverageFlag ${summary.hasFullCoverage ? 'speciesCoverageFlagFull' : 'speciesCoverageFlagPartial'}`,
+			summary.hasFullCoverage ? 'Full coverage' : 'Partial coverage'
+		));
+	}
+
+	return wrapper;
 }
 
 function displayLevelUpMovesRow(tracker, movePair) {
@@ -78,7 +94,8 @@ function displaySpeciesPanel(mon) {
 		buildWrapper('div', 'infoNameName', mon.key),
 		buildWrapper('div', 'infoDexIDWrapper',  '#' + mon.dexID),
 		buildWrapperTypes('div', 'infoTypes', types[mon.type[0]], types[mon.type[1]]),
-		buildWrapperAbilitiesFull('div', 'infoAbilities', mon.abilities, mon.ID)
+		buildWrapperAbilitiesFull('div', 'infoAbilities', mon.abilities, mon.ID),
+		buildWrapperCoverageFlag('div', 'infoCoverageFlag', mon)
 	);
 	
 	let statWrapper = buildWrapper('div', 'infoStats');
@@ -97,6 +114,8 @@ function displaySpeciesPanel(mon) {
 		buildWrapperChangelog('div', 'infoChangelog', mon),
 		buildWrapperFamilyTree('div', 'infoFamilyTree', mon),
 		buildWrapperCoverageDefensive('div', 'infoCoverage', mon.type[0], mon.type[1]),
+		buildWrapperCoverageVsThreats('div', 'infoCoverageThreats', mon),
+		buildWrapperOffensiveTypeReference('div', 'infoOffensiveChart'),
 		//buildWrapperCap('div', 'infoCap', mon.ID),
 		buildWrapperHeldItems('div', 'infoItems', mon.items),
 		//buildWrapperEggGroups('div', 'infoEggGroups', mon.eggGroup),
@@ -123,6 +142,41 @@ function buildWrapper(tag, className, text=null) {
 		wrapper.textContent = '-';
 	
 	return wrapper;
+}
+
+function applyHoverTooltip(element, text) {
+	element.classList.add('hoverTooltip');
+	element.dataset.tooltip = text;
+	return element;
+}
+
+function buildCoverageMoveHoverCard(move) {
+	let card = buildWrapper('div', 'coverageMoveHoverCard');
+	let header = buildWrapper('div', 'coverageMoveHoverHeader');
+	header.append(
+		buildWrapper('div', 'coverageMoveHoverHeading', 'Type'),
+		buildWrapper('div', 'coverageMoveHoverHeading', 'Category'),
+		buildWrapper('div', 'coverageMoveHoverHeading', 'Power'),
+		buildWrapper('div', 'coverageMoveHoverHeading', 'Acc')
+	);
+
+	let values = buildWrapper('div', 'coverageMoveHoverValues');
+	values.append(
+		buildWrapperTypes('div', 'coverageMoveHoverType', types[move.type]),
+		buildWrapperSprite('div', 'coverageMoveHoverSplit', getSprite(splits[move.split])),
+		buildWrapper('div', 'coverageMoveHoverStat', move.power),
+		buildWrapper('div', 'coverageMoveHoverStat', move.accuracy)
+	);
+
+	card.append(
+		header,
+		buildWrapper('div', 'coverageMoveHoverName', move.name),
+		values,
+		buildWrapper('div', 'coverageMoveHoverSource', move.coverageSourceLabel || ''),
+		buildWrapper('div', 'coverageMoveHoverDescription', move.description)
+	);
+
+	return card;
 }
 
 function buildWrapperSprite(tag, className, src) {
@@ -169,14 +223,26 @@ function buildWrapperTypes(tag, className, primary, secondary=null) {
 function buildWrapperAbilities(tag, className, a, species) {
 	let wrapper = buildWrapper(tag, className + 'Wrapper');
 	
-	if ((name = getAbilityName(a[1], species)))
-		wrapper.append(buildWrapper('div', className + 'Primary', name));
+	if ((name = getAbilityName(a[1], species))) {
+		let ability = getMappedAbility(a[1], species);
+		let entry = buildWrapper('div', className + 'Primary', name);
+		applyHoverTooltip(entry, abilities[ability[0]].description);
+		wrapper.append(entry);
+	}
 	
-	if ((name = getAbilityName(a[2], species)))
-		wrapper.append(buildWrapper('div', className + 'Secondary', name));
+	if ((name = getAbilityName(a[2], species))) {
+		let ability = getMappedAbility(a[2], species);
+		let entry = buildWrapper('div', className + 'Secondary', name);
+		applyHoverTooltip(entry, abilities[ability[0]].description);
+		wrapper.append(entry);
+	}
 	
-	if ((name = getAbilityName(a[0], species)))
-		wrapper.append(buildWrapper('div', className + 'Hidden', name));
+	if ((name = getAbilityName(a[0], species))) {
+		let ability = getMappedAbility(a[0], species);
+		let entry = buildWrapper('div', className + 'Hidden', name);
+		applyHoverTooltip(entry, abilities[ability[0]].description);
+		wrapper.append(entry);
+	}
 	
 	return wrapper;
 }
@@ -187,17 +253,23 @@ function buildWrapperAbilitiesFull(tag, className, a, species) {
 	let ability;
 	if ((name = getAbilityName(a[1], species))) {
 		ability = getMappedAbility(a[1], species);
-		wrapper.append(buildWrapper('div', className + 'Primary', name + ' - ' + abilities[ability[0]].description));
+		let entry = buildWrapper('div', className + 'Primary', name + ' - ' + abilities[ability[0]].description);
+		applyHoverTooltip(entry, abilities[ability[0]].description);
+		wrapper.append(entry);
 	}
 
 	if ((name = getAbilityName(a[2], species))) {
 		ability = getMappedAbility(a[2], species);
-		wrapper.append(buildWrapper('div', className + 'Secondary', name + ' - ' + abilities[ability[0]].description));
+		let entry = buildWrapper('div', className + 'Secondary', name + ' - ' + abilities[ability[0]].description);
+		applyHoverTooltip(entry, abilities[ability[0]].description);
+		wrapper.append(entry);
 	}
 
 	if ((name = getAbilityName(a[0], species))) {
 		ability = getMappedAbility(a[0], species);
-		wrapper.append(buildWrapper('div', className + 'Hidden', name + ' - ' + abilities[ability[0]].description));
+		let entry = buildWrapper('div', className + 'Hidden', name + ' - ' + abilities[ability[0]].description);
+		applyHoverTooltip(entry, abilities[ability[0]].description);
+		wrapper.append(entry);
 	}
 
 	return wrapper;
@@ -365,33 +437,318 @@ function familyTree(display, mon, prevo=null, evo=null) {
 	return wrapper;
 }
 
+function defensiveMultiplierWhenAttackedBy(attackerTypeEntry, primary, secondary) {
+	let matchup = 1;
+	for (const speciesType of [primary, secondary]) {
+		if (speciesType === undefined)
+			continue;
+		switch (attackerTypeEntry.matchup[speciesType]) {
+			case 20: matchup *= 2;   break;
+			case  5: matchup *= 0.5; break;
+			case  1: matchup *= 0;   break;
+		}
+	}
+	return matchup;
+}
+
+function moveTypesSuperEffectiveVs(defenderTypeId) {
+	let out = [];
+	for (const moveType of Object.values(types)) {
+		if (moveType.matchup[defenderTypeId] === 20)
+			out.push(moveType);
+	}
+	out.sort((a, b) => a.name.localeCompare(b.name));
+	return out;
+}
+
+function getCoverageThreats(mon) {
+	let threats = [];
+	for (const atkType of Object.values(types)) {
+		let mult = defensiveMultiplierWhenAttackedBy(atkType, mon.type[0], mon.type[1]);
+		if (mult >= 2)
+			threats.push({ atkType, mult });
+	}
+	threats.sort((a, b) => b.mult - a.mult || a.atkType.name.localeCompare(b.atkType.name));
+	return threats;
+}
+
+function getDamagingCoverageMovesByType(mon) {
+	let moveMap = new Map();
+	const moveEntries = [];
+
+	if (mon.levelupMoves) {
+		for (const [moveId, level] of mon.levelupMoves)
+			moveEntries.push({ moveId: getMappedMove(moveId, mon.ID), source: `Level ${level}` });
+	}
+
+	if (mon.tmMoves)
+		moveEntries.push(...mon.tmMoves.map((x) => ({ moveId: tmMoves[x], source: 'TM/HM' })));
+
+	if (mon.tutorMoves)
+		moveEntries.push(...mon.tutorMoves.map((x) => ({ moveId: tutorMoves[x], source: 'Tutor' })));
+
+	if (mon.prevoMoves)
+		moveEntries.push(...mon.prevoMoves.map((x) => ({ moveId: getMappedMove(x, mon.ID), source: 'Pre-evo' })));
+
+	if (mon.eventMoves)
+		moveEntries.push(...mon.eventMoves.map((x) => ({ moveId: x, source: 'Event' })));
+
+	for (const { moveId, source } of moveEntries) {
+		let move = getMove(moveId, mon.ID, true);
+		if (!move || move.power <= 0 || move.type === undefined)
+			continue;
+
+		let typedMoves = moveMap.get(move.type);
+		if (!typedMoves) {
+			typedMoves = new Map();
+			moveMap.set(move.type, typedMoves);
+		}
+
+		let existingMove = typedMoves.get(move.ID);
+		if (!existingMove) {
+			existingMove = {
+				...move,
+				coverageSources: [],
+				coverageSourceSet: new Set(),
+			};
+			typedMoves.set(move.ID, existingMove);
+		}
+
+		if (!existingMove.coverageSourceSet.has(source)) {
+			existingMove.coverageSourceSet.add(source);
+			existingMove.coverageSources.push(source);
+		}
+	}
+
+	for (const [typeId, typedMoves] of moveMap.entries()) {
+		moveMap.set(
+			typeId,
+			[...typedMoves.values()]
+				.map((move) => ({
+					...move,
+					coverageSourceLabel: move.coverageSources.join(' • '),
+				}))
+				.sort((a, b) =>
+					b.power - a.power ||
+					a.name.localeCompare(b.name)
+				)
+		);
+	}
+
+	return moveMap;
+}
+
+function getCoverageSummary(mon) {
+	const threats = getCoverageThreats(mon);
+	const learnedMovesByType = getDamagingCoverageMovesByType(mon);
+	const coverageByType = [];
+
+	for (const moveType of Object.values(types)) {
+		const coveredThreats = threats.filter(({ atkType }) => moveType.matchup[atkType.ID] === 20);
+		if (coveredThreats.length === 0)
+			continue;
+
+		const learnedMoves = learnedMovesByType.get(moveType.ID) || [];
+		coverageByType.push({
+			moveType,
+			coveredThreats,
+			learnedMoves,
+			hasLearnedCoverage: learnedMoves.length > 0,
+		});
+	}
+
+	coverageByType.sort((a, b) =>
+		b.coveredThreats.length - a.coveredThreats.length ||
+		Number(b.hasLearnedCoverage) - Number(a.hasLearnedCoverage) ||
+		a.moveType.name.localeCompare(b.moveType.name)
+	);
+
+	const fullyCoveredThreatIds = new Set();
+	for (const entry of coverageByType) {
+		if (!entry.hasLearnedCoverage)
+			continue;
+
+		for (const threat of entry.coveredThreats)
+			fullyCoveredThreatIds.add(threat.atkType.ID);
+	}
+
+	const uncoveredThreats = threats.filter(({ atkType }) => !fullyCoveredThreatIds.has(atkType.ID));
+
+	return {
+		threats,
+		coverageByType,
+		uncoveredThreats,
+		hasFullCoverage: threats.length > 0 && threats.every(({ atkType }) => fullyCoveredThreatIds.has(atkType.ID)),
+	};
+}
+
 function buildWrapperCoverageDefensive(tag, className, primary, secondary=undefined) {
 	let wrapper = buildWrapper(tag, className + 'Wrapper');
 	
 	let label = buildWrapper('div', 'coverageLabelWrapper', 'Weakness');
 	let matchups = buildWrapper('div', 'coverageMatchupsWrapper');
 	
-	let coverage = {};
 	for (const type of Object.values(types)) {
-
-		let matchup = 1;
-		for (const speciesType of [primary, secondary]) {
-
-			if (speciesType === undefined)
-				continue;
-			
-			switch (type.matchup[speciesType]) {
-				case 20: matchup *= 2;   break;
-				case  5: matchup *= 0.5; break;
-				case  1: matchup *= 0;   break;
-			}
-		}
-		
+		let matchup = defensiveMultiplierWhenAttackedBy(type, primary, secondary);
 		matchups.append(buildWrapperTypeMatchup(type, matchup));
 	}
 	
 	wrapper.append(label, matchups);
 	
+	return wrapper;
+}
+
+function buildWrapperCoverageFlag(tag, className, mon) {
+	let wrapper = buildWrapper(tag, className + 'Wrapper');
+	const summary = getCoverageSummary(mon);
+	const flag = buildWrapper(
+		'div',
+		`coverageFlag ${summary.hasFullCoverage ? 'coverageFlagFull' : 'coverageFlagPartial'}`,
+		summary.hasFullCoverage ? 'Full weakness coverage' : 'Missing weakness coverage'
+	);
+
+	if (summary.threats.length === 0) {
+		flag.textContent = 'No 2× weaknesses';
+		flag.className = 'coverageFlag coverageFlagNeutral';
+	}
+
+	wrapper.append(flag);
+	return wrapper;
+}
+
+function buildWrapperCoverageThreatPills(tag, className, threats) {
+	let wrapper = buildWrapper(tag, className + 'Wrapper');
+	if (threats.length === 0) {
+		wrapper.append(buildWrapper('div', 'coverageMoveNote', 'None'));
+		return wrapper;
+	}
+
+	for (const threat of threats) {
+		let pill = buildWrapperTypes('div', className, threat.atkType);
+		if (threat.isUncovered) {
+			pill.classList.add('coverageThreatMissing');
+			applyHoverTooltip(pill, 'No trainable damaging move currently covers this weakness.');
+		}
+		wrapper.append(pill);
+	}
+	return wrapper;
+}
+
+function buildWrapperCoverageMovePills(tag, className, movesList, isDisabled = false) {
+	let wrapper = buildWrapper(tag, className + 'Wrapper');
+	if (isDisabled) {
+		wrapper.classList.add('coverageMovesDisabled');
+		wrapper.append(buildWrapper('div', 'coverageMoveNote', 'No learned damaging moves of this type'));
+		return wrapper;
+	}
+
+	for (const move of movesList) {
+		let chip = buildWrapper('div', 'coverageMoveChip', move.name);
+		chip.classList.add('coverageMoveChipTrigger');
+		chip.append(buildCoverageMoveHoverCard(move));
+		wrapper.append(chip);
+	}
+	return wrapper;
+}
+
+function buildWrapperCoverageVsThreats(tag, className, mon) {
+	let wrapper = buildWrapper(tag, className + 'Wrapper');
+	wrapper.append(buildWrapper('div', 'coverageLabelWrapper', 'Coverage vs threats'));
+	wrapper.append(buildWrapper('div', 'coverageHelpText',
+		'Grouped by the move types that answer the most of your weaknesses first. Each row also shows whether this species actually learns damaging moves of that type.'));
+
+	const summary = getCoverageSummary(mon);
+	const threats = summary.threats;
+
+	if (threats.length === 0) {
+		wrapper.append(buildWrapper('div', 'coverageHelpText', 'No typings hit you for 2× or more.'));
+		return wrapper;
+	}
+
+	let mergeBlock = buildWrapper('div', 'coverageMergedSuggestions');
+	mergeBlock.append(buildWrapper('div', 'coverageSubLabel', 'Threats you want to answer'));
+	const uncoveredThreatIds = new Set(summary.uncoveredThreats.map(({ atkType }) => atkType.ID));
+	const orderedThreats = [
+		...threats
+			.filter(({ atkType }) => !uncoveredThreatIds.has(atkType.ID))
+			.map((threat) => ({ ...threat, isUncovered: false })),
+		...threats
+			.filter(({ atkType }) => uncoveredThreatIds.has(atkType.ID))
+			.map((threat) => ({ ...threat, isUncovered: true })),
+	];
+	mergeBlock.append(buildWrapperCoverageThreatPills('div', 'coveragePillRow', orderedThreats));
+	mergeBlock.append(buildWrapper(
+		'div',
+		`coverageSummaryFlag ${summary.hasFullCoverage ? 'coverageSummaryFlagFull' : 'coverageSummaryFlagPartial'}`,
+		summary.hasFullCoverage
+			? 'This Pokemon can cover all of its 2×+ weaknesses with learned damaging moves.'
+			: 'Some weaknesses still have no learned coverage answer.'
+	));
+	wrapper.append(mergeBlock);
+
+	for (const entry of summary.coverageByType) {
+		let line = buildWrapper(
+			'div',
+			`coverageThreatLine ${entry.hasLearnedCoverage ? 'coverageThreatLineActive' : 'coverageThreatLineDisabled'}`
+		);
+		let left = buildWrapper('div', 'coverageThreatLeft');
+		left.append(buildWrapperTypes('div', 'coverageThreatAttacker', entry.moveType));
+		left.append(buildWrapper(
+			'div',
+			'coverageThreatMult',
+			`Covers ${entry.coveredThreats.length} weakness${entry.coveredThreats.length === 1 ? '' : 'es'}`
+		));
+		line.append(left);
+
+		let answers = buildWrapper('div', 'coverageThreatAnswers');
+		answers.append(buildWrapper('div', 'coverageSectionLabel', 'Answers'));
+		answers.append(buildWrapperCoverageThreatPills('div', 'coveragePillRow', entry.coveredThreats));
+		line.append(answers);
+
+		let movesWrapper = buildWrapper('div', 'coverageThreatMoves');
+		movesWrapper.append(buildWrapper('div', 'coverageSectionLabel', 'Learned moves'));
+		movesWrapper.append(
+			buildWrapperCoverageMovePills('div', 'coverageMoves', entry.learnedMoves, !entry.hasLearnedCoverage)
+		);
+		line.append(movesWrapper);
+
+		wrapper.append(line);
+	}
+
+	return wrapper;
+}
+
+function buildWrapperOffensiveTypeReference(tag, className) {
+	let wrapper = buildWrapper(tag, className + 'Wrapper');
+	let det = document.createElement('details');
+	det.className = 'offensiveTypeChartDetails';
+	let sum = document.createElement('summary');
+	sum.className = 'coverageLabelWrapper offensiveChartSummary';
+	sum.textContent = 'Move type → super-effective vs (reference)';
+	det.append(sum);
+	let inner = buildWrapper('div', 'offensiveTypeChartInner');
+	let sortedMoveTypes = Object.values(types).sort((a, b) => a.name.localeCompare(b.name));
+	for (const moveType of sortedMoveTypes) {
+		let seTargets = [];
+		for (const defT of Object.values(types)) {
+			if (moveType.matchup[defT.ID] === 20)
+				seTargets.push(defT);
+		}
+		seTargets.sort((a, b) => a.name.localeCompare(b.name));
+		let row = buildWrapper('div', 'offensiveChartRow');
+		row.append(buildWrapperTypes('div', 'offensiveChartMoveType', moveType));
+		let targets = buildWrapper('div', 'offensiveChartTargets');
+		if (seTargets.length === 0)
+			targets.append(buildWrapper('div', 'offensiveChartNone', '—'));
+		else {
+			for (const dt of seTargets)
+				targets.append(buildWrapperTypes('div', 'offensiveChartTargetType', dt));
+		}
+		row.append(targets);
+		inner.append(row);
+	}
+	det.append(inner);
+	wrapper.append(det);
 	return wrapper;
 }
 

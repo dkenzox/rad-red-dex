@@ -1,22 +1,31 @@
-async function fetchData() {
-	let request = new Request(`https://raw.githubusercontent.com/${repo}/master/data.js`);
+async function fetchDataFile(url, useCache = false) {
+	let request = new Request(url);
 	let response = null;
-	if (typeof caches !== "undefined") {
+
+	if (useCache && typeof caches !== "undefined") {
 		const cache = await caches.open(version);
-		
 		response = await cache.match(request);
+
 		if (!response) {
-			response = await fetch(request);
-			await cache.put(request, response);
+			const networkResponse = await fetch(request);
+			if (!networkResponse.ok) {
+				throw new Error(`Request failed for ${url} (${networkResponse.status})`);
+			}
+			await cache.put(request, networkResponse.clone());
+			response = networkResponse;
 		}
-			response = await cache.match(request);
-	}
-	else
+	} else {
 		response = await fetch(request);
-	
+		if (!response.ok) {
+			throw new Error(`Request failed for ${url} (${response.status})`);
+		}
+	}
+
 	let data = await response.text();
-	data = new Function("return " + data + ";")();
-	
+	return new Function("return " + data + ";")();
+}
+
+function applyData(data) {
 	species = data.species;
 	moves = data.moves;
 	abilities = data.abilities;
@@ -33,9 +42,34 @@ async function fetchData() {
 	scaledLevels = data.scaledLevels;
 	capIDs = data.capIDs;
 	sprites = data.sprites;
-	
-	loadingScreen.className = "hide";
-	document.querySelector("main").className = "";
+}
+
+async function fetchData() {
+	const sources = [
+		{ url: "data.js", useCache: false },
+		{ url: `https://raw.githubusercontent.com/${repo}/master/data.js`, useCache: true },
+	];
+
+	let lastError = null;
+	for (const source of sources) {
+		try {
+			const data = await fetchDataFile(source.url, source.useCache);
+			applyData(data);
+
+			const loadingScreen = document.getElementById("loadingScreen");
+			const main = document.querySelector("main");
+			loadingScreen.className = "hide";
+			main.className = "";
+			return;
+		} catch (error) {
+			lastError = error;
+			console.warn(`Failed to load data from ${source.url}`, error);
+		}
+	}
+
+	const loadingScreen = document.getElementById("loadingScreen");
+	loadingScreen.innerHTML = "<p>Failed to load Pokedex data. Try reloading the page or running the site from a local web server.</p>";
+	throw lastError;
 }
 
 async function onStartup() {
