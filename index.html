@@ -174,41 +174,43 @@
 							<h1 id="authTitle">Sign In</h1>
 							<p id="authSubtitle" class="authSubtitle">Sync teams, favorites, and future save imports with your account.</p>
 							<p id="authStatusMessage" class="authStatusMessage">Configure Supabase to enable sign-in and saved data.</p>
-							<div class="authFieldGroup">
-								<label for="authEmailInput">Email</label>
-								<div class="authInputWrap">
-									<span class="authInputIcon">✉</span>
-									<input id="authEmailInput" type="email" autocomplete="email" />
-								</div>
-							</div>
-							<div class="authFieldGroup">
-								<label for="authPasswordInput">Password</label>
-								<div class="authInputWrap">
-									<span class="authInputIcon">•</span>
-									<input id="authPasswordInput" type="password" autocomplete="current-password" />
-								</div>
-							</div>
-							<div id="authSignUpFields" class="hide">
+							<form id="authForm" onsubmit="submitAuthForm(); return false;">
 								<div class="authFieldGroup">
-									<label for="authUsernameInput">Username</label>
+									<label for="authEmailInput">Email</label>
 									<div class="authInputWrap">
-										<span class="authInputIcon">@</span>
-										<input id="authUsernameInput" type="text" autocomplete="username" />
+										<span class="authInputIcon">✉</span>
+										<input id="authEmailInput" type="email" autocomplete="email" />
 									</div>
-									<div class="authFieldHint">Unique. 3-24 chars. Lowercase letters, numbers, and underscores only.</div>
 								</div>
 								<div class="authFieldGroup">
-									<label for="authDisplayNameInput">Display Name</label>
+									<label for="authPasswordInput">Password</label>
 									<div class="authInputWrap">
-										<span class="authInputIcon">✦</span>
-										<input id="authDisplayNameInput" type="text" autocomplete="nickname" />
+										<span class="authInputIcon">•</span>
+										<input id="authPasswordInput" type="password" autocomplete="current-password" />
 									</div>
-									<div class="authFieldHint">Can be repeated. This is the friendly name shown on your profile.</div>
 								</div>
-							</div>
-							<div id="authActions">
-								<button id="authPrimaryButton" onclick="submitAuthForm()">↪ Sign In</button>
-							</div>
+								<div id="authSignUpFields" class="hide">
+									<div class="authFieldGroup">
+										<label for="authUsernameInput">Username</label>
+										<div class="authInputWrap">
+											<span class="authInputIcon">@</span>
+											<input id="authUsernameInput" type="text" autocomplete="username" />
+										</div>
+										<div class="authFieldHint">Unique. 3-24 chars. Lowercase letters, numbers, and underscores only.</div>
+									</div>
+									<div class="authFieldGroup">
+										<label for="authDisplayNameInput">Display Name</label>
+										<div class="authInputWrap">
+											<span class="authInputIcon">✦</span>
+											<input id="authDisplayNameInput" type="text" autocomplete="nickname" />
+										</div>
+										<div class="authFieldHint">Can be repeated. This is the friendly name shown on your profile.</div>
+									</div>
+								</div>
+								<div id="authActions">
+									<button id="authPrimaryButton" type="submit">↪ Sign In</button>
+								</div>
+							</form>
 							<div id="authModePrompt">
 								<span id="authModePromptText">Need an account?</span>
 								<button type="button" id="authModePromptButton" onclick="setAuthMode('signup')">Sign Up</button>

@@ -1260,8 +1260,6 @@ async function signOutCurrentUser() {
 		flashBackendStatus(error.message, "error");
 		return;
 	}
-
-	flashBackendStatus("Signed out.", "success");
 }
 
 async function refreshAccountData() {
