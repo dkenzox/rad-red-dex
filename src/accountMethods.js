@@ -1272,12 +1272,10 @@ async function refreshAccountData() {
 		syncTeamsFromCurrentMode();
 		renderAccountState();
 		renderSpeciesPanelAccountActions(currentSpeciesPanelMon);
-		flashBackendStatus("Local team data refreshed.", "success");
 		return;
 	}
 
 	await loadAccountData();
-	flashBackendStatus("Account data refreshed.", "success");
 }
 
 async function createTeamFromInput() {
