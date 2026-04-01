@@ -1842,6 +1842,7 @@ li:hover {
 	flex-wrap: wrap;
 	gap: 8px;
 	justify-content: center;
+	margin-top: 10px;
 }
 
 #authModePrompt {
