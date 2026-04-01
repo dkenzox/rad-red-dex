@@ -86,6 +86,10 @@ function encodeBase64Unicode(value) {
 	return btoa(String.fromCharCode(...new TextEncoder().encode(value)));
 }
 
+function getAppBaseUrl() {
+	return `${window.location.origin}${window.location.pathname}`;
+}
+
 function decodeBase64Unicode(value) {
 	return new TextDecoder().decode(Uint8Array.from(atob(value), x => x.charCodeAt(0)));
 }
@@ -1011,10 +1015,10 @@ function buildTeamCard(team) {
 
 function getTeamShareUrl(team) {
 	if (team.source === "guest") {
-		return `${window.location.origin}${window.location.pathname}?guestTeam=${encodeURIComponent(encodeBase64Unicode(JSON.stringify(buildGuestSharedTeam(team))))}`;
+		return `${getAppBaseUrl()}?guestTeam=${encodeURIComponent(encodeBase64Unicode(JSON.stringify(buildGuestSharedTeam(team))))}`;
 	}
 
-	return `${window.location.origin}${window.location.pathname}?team=${encodeURIComponent(team.share_slug)}`;
+	return `${getAppBaseUrl()}?team=${encodeURIComponent(team.share_slug)}`;
 }
 
 async function upsertTeamMemberSelection(teamId, slot, mon, nickname, abilityId, moveIds) {
@@ -1219,6 +1223,7 @@ async function signUpWithPassword() {
 		email: email,
 		password: password,
 		options: {
+			emailRedirectTo: getAppBaseUrl(),
 			data: {
 				username: username,
 				display_name: displayName || username,

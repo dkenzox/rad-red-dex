@@ -1,6 +1,6 @@
 window.RRDEX_SUPABASE_CONFIG = window.RRDEX_SUPABASE_CONFIG || {
-	url: "",
-	anonKey: "",
+	url: "https://cpqjsozgzondhsqtegjj.supabase.co",
+	anonKey: "sb_publishable_Nf5fa6f_ae-fm7DbyFQxTQ_buVQSncp",
 	sharedTeamRpc: "get_shared_team",
 	saveImportFunction: "import-save",
 };
