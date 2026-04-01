@@ -708,6 +708,12 @@ function setBackendStatus(message, tone = "muted") {
 	if (!backendStatus)
 		return;
 
+	if (tone === "success") {
+		backendStatus.textContent = "";
+		backendStatus.dataset.tone = "muted";
+		return;
+	}
+
 	backendStatus.textContent = message;
 	backendStatus.dataset.tone = tone;
 }

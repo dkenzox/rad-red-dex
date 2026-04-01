@@ -887,7 +887,7 @@ li:hover {
     background-color: #333333;
 	text-shadow: 1px 1px black;
 	border: 2px #555 solid;
-    box-shadow: 1px 2px #00000047;  
+    box-shadow: 1px 2px #00000047;
 }
 
 .typeMatchupMultiplier.x0 {
@@ -1145,6 +1145,10 @@ li:hover {
 	max-width: 340px;
 	font-size: 0.82rem;
 	text-align: right;
+}
+
+#navAccountCluster #backendStatus:empty {
+	display: none;
 }
 
 #accountSignedOut,
@@ -2040,7 +2044,7 @@ tbody {
 .speciesRow > td,
 .table-dark.table-striped tbody tr.speciesRow:nth-of-type(odd) > td,
 .table-dark.table-hover tbody tr.speciesRow:hover > td {
-	background-image: none !important;
+	background-color: transparent !important;
 	box-shadow: none !important;
 }
 
@@ -2164,7 +2168,7 @@ td.speciesNameWrapper {
 	text-align: center;
 	text-shadow: 1px 1px black;
 	border: 2px white solid;
-    box-shadow: 1px 2px #00000047;    
+    box-shadow: 1px 2px #00000047;
 }
 
 .speciesAbilitiesWrapper, .infoAbilitiesWrapper, .infoChangelogAbilityWrapper {
@@ -2248,8 +2252,8 @@ td.speciesNameWrapper {
 	text-align: left;
 }
 
-#speciesLearnsetTMHMTable th:nth-of-type(1), 
-#speciesLearnsetTutorTable th:nth-of-type(1), 
+#speciesLearnsetTMHMTable th:nth-of-type(1),
+#speciesLearnsetTutorTable th:nth-of-type(1),
 #speciesLearnsetEggMovesTable th:nth-of-type(1)
 {
 	width: 100%;
@@ -2314,19 +2318,19 @@ td.moveDescriptionWrapper {
 }
 
 @media (max-width: 991.98px) {
-	
+
 	#speciesTable tbody {
 		scroll-margin-top: 67px;
 	}
-	
+
 	#speciesTable .sortLocked {
 		display: none;
 	}
-	
+
 	#speciesTable .table td {
 		border: none;
 	}
-	
+
 	#speciesTable .sortControls {
 		display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
 		display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
@@ -2340,11 +2344,11 @@ td.moveDescriptionWrapper {
 		width: 14.28%;
 		border: none;
 	}
-	
+
 	#speciesTable th:nth-of-type(1), #speciesTable th:nth-of-type(3), #speciesTable th:nth-of-type(5) {
 		width: 33.33%;
 	}
-	
+
 	.speciesRow {
 		position: relative;
 		height: fit-content;
@@ -2355,20 +2359,70 @@ td.moveDescriptionWrapper {
 		display: -webkit-flex;     /* NEW - Chrome */
 		display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 		flex-wrap: wrap;
-		align-items: center;
+		align-items: stretch;
 		border-top: solid thin #757575;
+		padding: 0.2rem 0;
+		overflow: hidden;
 	}
-	
-	.speciesDexIDWrapper {
+
+	.speciesRow::before {
+		content: "";
 		position: absolute;
-		left: 21%;
-		top: 12%;
+		inset: 0;
+		background-image: linear-gradient(to right, var(--species-row-start, rgba(63, 40, 40, 0.3)), var(--species-row-end, rgba(63, 40, 40, 0.3)));
+		pointer-events: none;
+		z-index: 0;
 	}
-	
-	.speciesSpriteWrapper, .speciesNameWrapper, #speciesTable .speciesTypesWrapper {
-		width: 33%;
+
+	.speciesRow > td,
+	.table-dark.table-striped tbody tr.speciesRow:nth-of-type(odd) > td,
+	.table-dark.table-hover tbody tr.speciesRow:hover > td {
+		background-image: none !important;
+		background-color: transparent !important;
+		position: relative;
+		z-index: 1;
 	}
-	
+
+	.speciesDexIDWrapper {
+		position: static;
+		width: 10%;
+		min-width: 0;
+		order: 2;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 92px;
+	}
+
+	.speciesSpriteWrapper {
+		width: 18%;
+		order: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 92px;
+	}
+
+	.speciesNameWrapper {
+		width: 34%;
+		order: 3;
+		min-height: 92px;
+	}
+
+	#speciesTable .speciesTypesWrapper {
+		width: 38%;
+		order: 4;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 92px;
+	}
+
 	td.speciesNameWrapper {
 		display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
 		display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
@@ -2377,20 +2431,48 @@ td.moveDescriptionWrapper {
 		display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 		flex-direction: column;
 		justify-content: center;
+		align-items: center;
+		text-align: center;
+		padding-inline: 0.35rem;
 	}
-	
+
+	.speciesNameContent {
+		align-items: center;
+		gap: 6px;
+	}
+
+	.speciesNameHeader {
+		justify-content: center;
+	}
+
+	.speciesNameFavoriteStar {
+		display: none;
+	}
+
+	.speciesCoverageFlag {
+		display: inline-block;
+		align-self: center;
+		margin-top: 0;
+		font-size: 0.95rem;
+		white-space: nowrap;
+	}
+
 	.speciesAbilitiesWrapper {
 		width: 100%;
+		order: 5;
 		display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
 		display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
 		display: -ms-flexbox;      /* TWEENER - IE 10 */
 		display: -webkit-flex;     /* NEW - Chrome */
 		display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+		align-items: center;
 		justify-content: space-evenly;
+		padding: 0.2rem 0 0.35rem;
 	}
-	
+
 	.speciesStatWrapper {
-		width: 14%;
+		width: 14.28%;
+		order: 6;
 	}
 }
 
@@ -2453,12 +2535,37 @@ td.moveDescriptionWrapper {
 	}
 
 	#searchPanel {
+		align-items: stretch;
 		justify-content: center;
+    align-self: center;
 	}
 
 	#speciesControl {
+		width: min(100%, 340px);
 		flex: 1 1 100%;
 		justify-content: center;
+		align-items: stretch;
+		margin-inline: auto;
+	}
+
+	#speciesFilterCategoryWrapper {
+		flex: 0 0 102px;
+	}
+
+	#speciesFilterInputWrapper {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
+	#speciesFilterInput {
+		width: 100%;
+		min-width: 0;
+	}
+
+	#favoritesOnlyToggle {
+		width: auto;
+		justify-content: center;
+		margin-inline: auto;
 	}
 
 	#currentSaveDash {

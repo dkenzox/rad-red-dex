@@ -932,11 +932,23 @@ function buildBackgroundColor(currentRow, mon) {
 		? parseRgbColor(types[mon.type[1]].color)
 		: [63, 40, 40];
 	const cells = Array.from(currentRow.children);
+	const rowWidth = currentRow.getBoundingClientRect().width
+		|| cells.reduce((sum, cell) => sum + cell.getBoundingClientRect().width, 0)
+		|| 1;
+	const gradient = `linear-gradient(to right, rgba(${primaryColor[0]}, ${primaryColor[1]}, ${primaryColor[2]}, 0.3), rgba(${secondaryColor[0]}, ${secondaryColor[1]}, ${secondaryColor[2]}, 0.3))`;
+
+	currentRow.style.setProperty('--species-row-start', `rgba(${primaryColor[0]}, ${primaryColor[1]}, ${primaryColor[2]}, 0.3)`);
+	currentRow.style.setProperty('--species-row-end', `rgba(${secondaryColor[0]}, ${secondaryColor[1]}, ${secondaryColor[2]}, 0.3)`);
+	currentRow.style.backgroundColor = '';
+	currentRow.style.backgroundImage = '';
 
 	for (let index = 0; index < cells.length; index++) {
-		const progress = cells.length <= 1 ? 0 : index / (cells.length - 1);
-		const mixed = mixRgbColor(primaryColor, secondaryColor, progress * 0.85);
-		cells[index].style.backgroundColor = `rgba(${mixed[0]}, ${mixed[1]}, ${mixed[2]}, 0.3)`;
+		const left = cells[index].offsetLeft || 0;
+		cells[index].style.backgroundColor = 'transparent';
+		cells[index].style.backgroundImage = gradient;
+		cells[index].style.backgroundSize = `${rowWidth}px 100%`;
+		cells[index].style.backgroundPosition = `-${left}px 0`;
+		cells[index].style.backgroundRepeat = 'no-repeat';
 	}
 	return;
 	
