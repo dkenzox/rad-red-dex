@@ -755,24 +755,24 @@ function flashBackendStatus(message, tone = "success", duration = 3500) {
 
 function renderBackendStatus() {
 	if (!isSupabaseConfigured()) {
-		setBackendStatus("Supabase is not configured yet. Guest teams and favorites still work locally.", "warn");
+		setBackendStatus("", "muted");
 		setAuthStatus("Set a Supabase URL and anon key to enable cloud accounts, favorites, and team sync.", "warn");
 		return;
 	}
 
 	if (!backendEnabled) {
-		setBackendStatus("Supabase is configured but not connected.", "warn");
+		setBackendStatus("", "muted");
 		setAuthStatus("Supabase is configured. Open the modal to sign in once the client initializes.", "muted");
 		return;
 	}
 
 	if (!authSession) {
-		setBackendStatus("Supabase connected. Sign in to sync teams and favorites. Guest teams and favorites still work locally.", "success");
+		setBackendStatus("", "muted");
 		setAuthStatus("Create an account or sign in with email and password.", "muted");
 		return;
 	}
 
-	setBackendStatus("Signed in. Teams, favorites, and save imports are available.", "success");
+	setBackendStatus("", "muted");
 	setAuthStatus("Signed in successfully.", "success");
 }
 
