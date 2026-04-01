@@ -2,16 +2,27 @@ function displayHelp() {
 	$('#helpModal').modal('show');
 }
 
+function toggleLearnsetSection(sectionId) {
+	let section = document.getElementById(sectionId);
+	if (!section)
+		return;
+
+	section.classList.toggle('learnsetToggleCollapsed');
+	let chevron = section.querySelector('.learnsetToggleChevron');
+	if (chevron)
+		chevron.textContent = section.classList.contains('learnsetToggleCollapsed') ? '▸' : '▾';
+}
+
 function displaySpeciesRow(tracker, mon) {
 	let currentRow = document.createElement('tr');
 	currentRow.className = 'speciesRow';
-	currentRow.onclick = function() {
+	currentRow.onclick = function(event) {
+		if (event.target.closest('.favoriteStarButton'))
+			return;
 		displaySpeciesPanel(mon);
 	};
 	tracker.body.appendChild(currentRow);
-	
-	buildBackgroundColor(currentRow, mon);
-	
+
 	currentRow.append(
 		buildWrapper('td', 'speciesDexIDWrapper', mon.dexID),
 		buildWrapperSprite('td', 'speciesSprite', getSprite(mon.ID)),
@@ -26,21 +37,49 @@ function displaySpeciesRow(tracker, mon) {
 		buildWrapperStat('td', 'speciesStat', 'Spe', mon.stats[3]),
 		buildWrapperStat('td', 'speciesStat', 'BST', mon.stats.reduce((total, y) => total += y, 0))
 	);
+
+	buildBackgroundColor(currentRow, mon);
+}
+
+function buildFavoriteStar(mon, contextClass = '') {
+	const isFavorited = typeof isSpeciesFavorited === 'function' && isSpeciesFavorited(mon.ID);
+	let button = document.createElement('button');
+	button.type = 'button';
+	button.className = `favoriteStarButton${contextClass ? ' ' + contextClass : ''}${isFavorited ? ' favoriteStarButtonActive' : ''}`;
+	button.textContent = '★';
+	button.setAttribute('aria-label', `${isFavorited ? 'Remove' : 'Add'} ${mon.key} ${'from favorites'}`);
+	button.title = `${isFavorited ? 'Remove from' : 'Add to'} favorites`;
+	button.addEventListener('click', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+		event.stopImmediatePropagation();
+
+		if (typeof toggleFavoriteSpeciesFromStar === 'function')
+			toggleFavoriteSpeciesFromStar(mon.ID);
+	});
+	return button;
 }
 
 function buildWrapperSpeciesName(tag, className, mon) {
 	let wrapper = buildWrapper(tag, className + 'Wrapper');
-	wrapper.append(buildWrapper('div', className + 'Label', mon.key));
+	let content = buildWrapper('div', className + 'Content');
+	let header = buildWrapper('div', className + 'Header');
+	header.append(
+		buildFavoriteStar(mon, `${className}FavoriteStar`),
+		buildWrapper('div', className + 'Label', mon.key)
+	);
+	content.append(header);
 
 	const summary = getCoverageSummary(mon);
 	if (summary.threats.length > 0) {
-		wrapper.append(buildWrapper(
+		content.append(buildWrapper(
 			'div',
 			`speciesCoverageFlag ${summary.hasFullCoverage ? 'speciesCoverageFlagFull' : 'speciesCoverageFlagPartial'}`,
 			summary.hasFullCoverage ? 'Full coverage' : 'Partial coverage'
 		));
 	}
 
+	wrapper.append(content);
 	return wrapper;
 }
 
@@ -78,6 +117,7 @@ function displayMovesRow(tracker, move) {
 
 function displaySpeciesPanel(mon) {
 	let infoDisplay = document.getElementById('speciesPanelInfoDisplay');
+	currentSpeciesPanelMon = mon;
 	let tables = [
 		['speciesLearnsetPrevoExclusiveTable', mon.prevoMoves?.map(x => getMove(x, mon.ID))],
 		['speciesLearnsetLevelUpTable', mon.levelupMoves?.map(x => [getMove(x[0], mon.ID), x[1]])],
@@ -91,12 +131,22 @@ function displaySpeciesPanel(mon) {
 	
 	infoDisplay.append(
 		buildWrapperSprite('div', 'infoSprite', getSprite(mon.ID)),
-		buildWrapper('div', 'infoNameName', mon.key),
+		(() => {
+			let header = buildWrapper('div', 'infoNameHeader');
+			header.append(
+				buildFavoriteStar(mon, 'infoNameFavoriteStar'),
+				buildWrapper('div', 'infoNameName', mon.key)
+			);
+			return header;
+		})(),
 		buildWrapper('div', 'infoDexIDWrapper',  '#' + mon.dexID),
 		buildWrapperTypes('div', 'infoTypes', types[mon.type[0]], types[mon.type[1]]),
 		buildWrapperAbilitiesFull('div', 'infoAbilities', mon.abilities, mon.ID),
 		buildWrapperCoverageFlag('div', 'infoCoverageFlag', mon)
 	);
+
+	let accountActionsHost = buildWrapper('div', 'infoAccountActionsHost');
+	accountActionsHost.id = 'speciesPanelAccountActionsHost';
 	
 	let statWrapper = buildWrapper('div', 'infoStats');
 	statWrapper.append(
@@ -110,24 +160,37 @@ function displaySpeciesPanel(mon) {
 	);
 	
 	infoDisplay.append(
+		accountActionsHost,
 		statWrapper,
 		buildWrapperChangelog('div', 'infoChangelog', mon),
 		buildWrapperFamilyTree('div', 'infoFamilyTree', mon),
 		buildWrapperCoverageDefensive('div', 'infoCoverage', mon.type[0], mon.type[1]),
 		buildWrapperCoverageVsThreats('div', 'infoCoverageThreats', mon),
-		buildWrapperOffensiveTypeReference('div', 'infoOffensiveChart'),
+		buildWrapperOffensiveTypeReference('div', 'infoOffensiveChart', mon),
 		//buildWrapperCap('div', 'infoCap', mon.ID),
-		buildWrapperHeldItems('div', 'infoItems', mon.items),
-		//buildWrapperEggGroups('div', 'infoEggGroups', mon.eggGroup),
+			buildWrapperHeldItems('div', 'infoItems', mon.items),
+			//buildWrapperEggGroups('div', 'infoEggGroups', mon.eggGroup),
 	);
+
+	if (typeof renderSpeciesPanelAccountActions === 'function')
+		renderSpeciesPanelAccountActions(mon);
 
 	for (const [ID, data] of tables) {
 		let table = document.getElementById(ID);
-		table.className = 'tableWrapper';
-		if (data && data.length > 0)
+		table.className = ID === 'speciesLearnsetEggMovesTable'
+			? 'tableWrapper learnsetToggleWrapper learnsetToggleCollapsed'
+			: 'tableWrapper';
+		if (data && data.length > 0) {
 			populateTable(ID, data);
+			table.classList.remove('hide');
+			if (ID === 'speciesLearnsetEggMovesTable') {
+				let chevron = table.querySelector('.learnsetToggleChevron');
+				if (chevron)
+					chevron.textContent = '▸';
+			}
+		}
 		else
-			table.classList.toggle('hide');
+			table.classList.add('hide');
 	}
 
 	$('#speciesModal').modal('show');
@@ -333,7 +396,7 @@ function buildWrapperChangelog(tag, className, mon) {
 			let oldAbility = mon.changes.abilities[ability];
 			let newAbility = mon.abilities[ability];
 
-			if (newAbility.equals(oldAbility))
+			if (arrayEquals(newAbility, oldAbility))
 				continue;
 			if (typeof oldAbility !== 'string')
 				oldAbility = getAbilityName(oldAbility, mon.ID, true);
@@ -472,25 +535,32 @@ function getCoverageThreats(mon) {
 	return threats;
 }
 
-function getDamagingCoverageMovesByType(mon) {
+function getDamagingCoverageMovesByType(mon, options = {}) {
+	const sources = {
+		levelup: options.levelup !== false,
+		tmhm: options.tmhm !== false,
+		tutor: options.tutor !== false,
+		prevo: options.prevo !== false,
+		event: options.event !== false,
+	};
 	let moveMap = new Map();
 	const moveEntries = [];
 
-	if (mon.levelupMoves) {
+	if (sources.levelup && mon.levelupMoves) {
 		for (const [moveId, level] of mon.levelupMoves)
 			moveEntries.push({ moveId: getMappedMove(moveId, mon.ID), source: `Level ${level}` });
 	}
 
-	if (mon.tmMoves)
+	if (sources.tmhm && mon.tmMoves)
 		moveEntries.push(...mon.tmMoves.map((x) => ({ moveId: tmMoves[x], source: 'TM/HM' })));
 
-	if (mon.tutorMoves)
+	if (sources.tutor && mon.tutorMoves)
 		moveEntries.push(...mon.tutorMoves.map((x) => ({ moveId: tutorMoves[x], source: 'Tutor' })));
 
-	if (mon.prevoMoves)
+	if (sources.prevo && mon.prevoMoves)
 		moveEntries.push(...mon.prevoMoves.map((x) => ({ moveId: getMappedMove(x, mon.ID), source: 'Pre-evo' })));
 
-	if (mon.eventMoves)
+	if (sources.event && mon.eventMoves)
 		moveEntries.push(...mon.eventMoves.map((x) => ({ moveId: x, source: 'Event' })));
 
 	for (const { moveId, source } of moveEntries) {
@@ -558,8 +628,8 @@ function getCoverageSummary(mon) {
 	}
 
 	coverageByType.sort((a, b) =>
-		b.coveredThreats.length - a.coveredThreats.length ||
 		Number(b.hasLearnedCoverage) - Number(a.hasLearnedCoverage) ||
+		b.coveredThreats.length - a.coveredThreats.length ||
 		a.moveType.name.localeCompare(b.moveType.name)
 	);
 
@@ -573,10 +643,11 @@ function getCoverageSummary(mon) {
 	}
 
 	const uncoveredThreats = threats.filter(({ atkType }) => !fullyCoveredThreatIds.has(atkType.ID));
+	const learnedCoverageByType = coverageByType.filter((entry) => entry.hasLearnedCoverage);
 
 	return {
 		threats,
-		coverageByType,
+		coverageByType: learnedCoverageByType,
 		uncoveredThreats,
 		hasFullCoverage: threats.length > 0 && threats.every(({ atkType }) => fullyCoveredThreatIds.has(atkType.ID)),
 	};
@@ -655,7 +726,7 @@ function buildWrapperCoverageVsThreats(tag, className, mon) {
 	let wrapper = buildWrapper(tag, className + 'Wrapper');
 	wrapper.append(buildWrapper('div', 'coverageLabelWrapper', 'Coverage vs threats'));
 	wrapper.append(buildWrapper('div', 'coverageHelpText',
-		'Grouped by the move types that answer the most of your weaknesses first. Each row also shows whether this species actually learns damaging moves of that type.'));
+		'Grouped by learned damaging move types that answer the most of your weaknesses first.'));
 
 	const summary = getCoverageSummary(mon);
 	const threats = summary.threats;
@@ -718,36 +789,67 @@ function buildWrapperCoverageVsThreats(tag, className, mon) {
 	return wrapper;
 }
 
-function buildWrapperOffensiveTypeReference(tag, className) {
+function buildWrapperOffensiveTypeReference(tag, className, mon) {
 	let wrapper = buildWrapper(tag, className + 'Wrapper');
 	let det = document.createElement('details');
 	det.className = 'offensiveTypeChartDetails';
 	let sum = document.createElement('summary');
 	sum.className = 'coverageLabelWrapper offensiveChartSummary';
-	sum.textContent = 'Move type → super-effective vs (reference)';
+	sum.textContent = 'Learned move type coverage graph';
 	det.append(sum);
-	let inner = buildWrapper('div', 'offensiveTypeChartInner');
-	let sortedMoveTypes = Object.values(types).sort((a, b) => a.name.localeCompare(b.name));
-	for (const moveType of sortedMoveTypes) {
-		let seTargets = [];
-		for (const defT of Object.values(types)) {
-			if (moveType.matchup[defT.ID] === 20)
-				seTargets.push(defT);
-		}
-		seTargets.sort((a, b) => a.name.localeCompare(b.name));
-		let row = buildWrapper('div', 'offensiveChartRow');
-		row.append(buildWrapperTypes('div', 'offensiveChartMoveType', moveType));
-		let targets = buildWrapper('div', 'offensiveChartTargets');
-		if (seTargets.length === 0)
-			targets.append(buildWrapper('div', 'offensiveChartNone', '—'));
-		else {
-			for (const dt of seTargets)
-				targets.append(buildWrapperTypes('div', 'offensiveChartTargetType', dt));
+	let intro = buildWrapper('div', 'coverageHelpText',
+		'Only level-up and TM/HM damaging move types are shown here. Each branch leads to the defending types that move type hits for 2×.');
+	det.append(intro);
+
+	const learnedMovesByType = getDamagingCoverageMovesByType(mon, {
+		levelup: true,
+		tmhm: true,
+		tutor: false,
+		prevo: false,
+		event: false,
+	});
+	const learnedMoveTypes = [...learnedMovesByType.keys()]
+		.map((typeId) => ({
+			moveType: types[typeId],
+			targets: Object.values(types)
+				.filter((defenderType) => types[typeId].matchup[defenderType.ID] === 20)
+				.sort((a, b) => a.name.localeCompare(b.name)),
+		}))
+		.filter((entry) => entry.moveType && entry.targets.length > 0)
+		.filter(Boolean)
+		.sort((a, b) => a.moveType.name.localeCompare(b.moveType.name));
+
+	if (learnedMoveTypes.length === 0) {
+		det.append(buildWrapper('div', 'coverageMoveNote', 'No learned damaging move types available.'));
+		wrapper.append(det);
+		return wrapper;
+	}
+
+	let scroller = buildWrapper('div', 'offensiveTypeChartScroller');
+	let inner = buildWrapper('div', 'offensiveTree');
+	for (const entry of learnedMoveTypes) {
+		let row = buildWrapper('div', 'offensiveTreeRow');
+		row.append(buildWrapperTypes('div', 'offensiveTreeMoveType', entry.moveType));
+
+		let branch = buildWrapper('div', 'offensiveTreeBranch');
+		let branchLine = buildWrapper('div', 'offensiveTreeBranchLine');
+		let branchNode = buildWrapper('div', 'offensiveTreeBranchNode');
+		branchNode.style.backgroundColor = entry.moveType.color;
+		branch.append(branchLine, branchNode);
+		row.append(branch);
+
+		let targets = buildWrapper('div', 'offensiveTreeTargets');
+		for (const defenderType of entry.targets) {
+			let target = buildWrapperTypes('div', 'offensiveTreeTargetType', defenderType);
+			applyHoverTooltip(target, `${entry.moveType.name} hits ${defenderType.name} super-effectively.`);
+			targets.append(target);
 		}
 		row.append(targets);
 		inner.append(row);
 	}
-	det.append(inner);
+
+	scroller.append(inner);
+	det.append(scroller);
 	wrapper.append(det);
 	return wrapper;
 }
@@ -798,7 +900,7 @@ function buildWrapperCap(tag, className, ID) {
 function buildWrapperHeldItems(tag, className, i) {
 	let wrapper = buildWrapper(tag, className + 'Wrapper');
 	
-	if (i.equals([0, 0])) //why must it be this way?
+	if (arrayEquals(i, [0, 0])) //why must it be this way?
 		return wrapper;
 	wrapper.append(buildWrapper('div', 'infoItemsLabel', 'Held Items'));
 	if (i[0])
@@ -812,7 +914,7 @@ function buildWrapperHeldItems(tag, className, i) {
 function buildWrapperEggGroups(tag, className, e) {
 	let wrapper = buildWrapper(tag, className + 'Wrapper');
 	
-	if (e.equals([0, 0]))
+	if (arrayEquals(e, [0, 0]))
 		return wrapper;
 	
 	wrapper.append(buildWrapper('div', 'infoEggGroupsLabel', 'Egg Groups'));
@@ -825,9 +927,17 @@ function buildWrapperEggGroups(tag, className, e) {
 }
 
 function buildBackgroundColor(currentRow, mon) {
-	currentRow.style.backgroundColor = types[mon.type[0]].color;
-		currentRow.style.backgroundImage = 'linear-gradient(to right, rgba' + currentRow.style.backgroundColor.substr(3).replace(')', ', 0.4)') + ', rgb(63, 40, 40, 0.4))';
-		currentRow.style.backgroundColor = '';
+	const primaryColor = parseRgbColor(types[mon.type[0]].color);
+	const secondaryColor = mon.type[1] !== undefined
+		? parseRgbColor(types[mon.type[1]].color)
+		: [63, 40, 40];
+	const cells = Array.from(currentRow.children);
+
+	for (let index = 0; index < cells.length; index++) {
+		const progress = cells.length <= 1 ? 0 : index / (cells.length - 1);
+		const mixed = mixRgbColor(primaryColor, secondaryColor, progress * 0.85);
+		cells[index].style.backgroundColor = `rgba(${mixed[0]}, ${mixed[1]}, ${mixed[2]}, 0.3)`;
+	}
 	return;
 	
 	//if (mon.type.secondary) {

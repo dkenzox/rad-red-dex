@@ -1,9 +1,11 @@
 body {
 	background-color: #222222;
+	margin: 0;
+	color: white;
 }
 
 .hide {
-	display: none;
+	display: none !important;
 }
 
 #loadingScreen {
@@ -14,6 +16,223 @@ body {
 
 #loadingScreen > p {
 	margin-top: 20px;
+}
+
+main {
+	width: 100%;
+	padding-bottom: 40px;
+}
+
+#topNav {
+	position: sticky;
+	top: 0;
+	z-index: 40;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 18px;
+	padding: 16px 22px;
+	background: rgba(24, 24, 24, 0.92);
+	backdrop-filter: blur(14px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#navBrand,
+#navActions,
+#navQuickActions,
+#navAccountCluster,
+#accountSummary {
+	display: flex;
+	align-items: center;
+}
+
+#navBrand {
+	flex-wrap: wrap;
+	gap: 12px 18px;
+}
+
+#navTitleBlock {
+	display: flex;
+	flex-direction: column;
+	line-height: 1;
+	gap: 4px;
+}
+
+#navEyebrow,
+.accountWorkspaceEyebrow {
+	font-size: 0.72rem;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.55);
+}
+
+#navTitle {
+	font-size: 1.5rem;
+	font-weight: 800;
+	letter-spacing: -0.04em;
+}
+
+#credit {
+	color: rgba(255, 255, 255, 0.62);
+	font-size: 0.9rem;
+}
+
+#navActions {
+	margin-left: auto;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 10px 14px;
+}
+
+#navQuickActions,
+#navAccountCluster {
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+#navAccountCluster {
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 6px;
+}
+
+#topNav #currentSave {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 0.2rem 0.45rem;
+	color: rgba(255, 255, 255, 0.72);
+	font-size: 0.92rem;
+}
+
+.navSaveLabel {
+	color: rgba(255, 255, 255, 0.58);
+}
+
+.buttonIcon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1rem;
+	min-width: 1rem;
+	line-height: 1;
+}
+
+.navUtilityButton,
+.navPrimaryButton,
+.accountMenuButton,
+#createTeamButton,
+#clearCurrentSave,
+#authPrimaryButton,
+#authModeTabs button,
+#authModePromptButton,
+.accountTeamActions button,
+.infoAccountActions button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-height: 38px;
+	padding: 0.5rem 0.85rem;
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	background: rgba(255, 255, 255, 0.035);
+	color: white;
+	font-weight: 650;
+	line-height: 1;
+	appearance: none;
+	box-shadow: none;
+	transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+.navUtilityButton:hover,
+.navPrimaryButton:hover,
+.accountMenuButton:hover,
+#createTeamButton:hover,
+#clearCurrentSave:hover,
+#authPrimaryButton:hover,
+#authModeTabs button:hover,
+#authModePromptButton:hover,
+.accountTeamActions button:hover,
+.infoAccountActions button:hover {
+	background: rgba(255, 255, 255, 0.08);
+	border-color: rgba(255, 255, 255, 0.22);
+	transform: translateY(-1px);
+}
+
+.navPrimaryButton,
+#authPrimaryButton,
+#createTeamButton {
+	background: #2f6feb;
+	border-color: rgba(99, 164, 255, 0.6);
+}
+
+.navPrimaryButton:hover,
+#authPrimaryButton:hover,
+#createTeamButton:hover {
+	background: #3b7bff;
+	border-color: rgba(133, 184, 255, 0.78);
+}
+
+.accountMenuButtonDanger {
+	color: #ffb4b4;
+}
+
+#accountMenu {
+	position: relative;
+}
+
+#accountSummaryButton {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	padding: 8px 12px;
+	border-radius: 14px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: rgba(255, 255, 255, 0.04);
+	color: white;
+	min-height: 42px;
+}
+
+#accountSummaryButton:hover {
+	background: rgba(255, 255, 255, 0.08);
+	border-color: rgba(255, 255, 255, 0.22);
+}
+
+#accountIdentity {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 2px;
+	min-width: 0;
+}
+
+#accountSummaryChevron {
+	color: rgba(255, 255, 255, 0.72);
+	font-size: 0.95rem;
+}
+
+#accountDropdown {
+	position: absolute;
+	right: 0;
+	top: calc(100% + 8px);
+	min-width: 220px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 14px;
+	background: rgba(26, 26, 26, 0.98);
+	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+#accountDropdown.hide {
+	display: none !important;
 }
 
 #speciesFilterInputWrapper, #speciesFilterCategoryWrapper {
@@ -356,7 +575,7 @@ li:hover {
 	display: -webkit-flex;
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
 	gap: 10px;
 	margin: 10px 0;
@@ -384,9 +603,22 @@ li:hover {
 	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 	gap: 4px;
 	min-width: 120px;
+	padding-left: 12px;
+	padding-top: 12px;
+	box-sizing: border-box;
+}
+
+.coverageThreatAttackerWrapper {
+	width: 100%;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: flex-start;
 }
 
 .coverageThreatAnswers,
@@ -406,6 +638,8 @@ li:hover {
 .coverageThreatMult {
 	font-size: 0.85rem;
 	color: #f0a030;
+	width: 100%;
+	text-align: left;
 }
 
 .coverageSectionLabel {
@@ -562,25 +796,77 @@ li:hover {
 	display: none;
 }
 
-.offensiveChartRow {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
+.offensiveTypeChartScroller {
+	overflow-x: auto;
+	padding-bottom: 6px;
+}
+
+.offensiveTree {
+	min-width: min(100%, 520px);
+	display: grid;
+	gap: 12px;
+	padding: 14px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 14px;
+	background: rgba(255, 255, 255, 0.02);
+}
+
+.offensiveTreeRow {
+	display: grid;
+	grid-template-columns: minmax(78px, auto) 44px minmax(0, 1fr);
+	align-items: center;
+	column-gap: 10px;
+}
+
+.offensiveTreeMoveTypeWrapper {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.offensiveTreeMoveTypeWrapper .typeWrapper {
+	transform: scale(0.84);
+	transform-origin: left center;
+	margin: 0;
+}
+
+.offensiveTreeBranch {
+	position: relative;
+	height: 100%;
+	min-height: 28px;
+	display: flex;
+	align-items: center;
+}
+
+.offensiveTreeBranchLine {
+	width: 100%;
+	height: 2px;
+	background: rgba(255, 255, 255, 0.18);
+}
+
+.offensiveTreeBranchNode {
+	position: absolute;
+	right: 0;
+	width: 10px;
+	height: 10px;
+	border-radius: 999px;
+	box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.06);
+}
+
+.offensiveTreeTargets {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	justify-content: center;
-	gap: 8px;
-	margin: 8px 0;
-	padding-bottom: 6px;
-	border-bottom: 1px solid #333;
+	gap: 8px 6px;
 }
 
-.offensiveChartNone {
-	color: #666;
-	font-size: 0.9rem;
-	padding: 4px 8px;
+.offensiveTreeTargetTypeWrapper {
+	display: flex;
+}
+
+.offensiveTreeTargetTypeWrapper .typeWrapper {
+	transform: scale(0.8);
+	transform-origin: left center;
+	margin: 0;
 }
 
 .coverageMatchupsWrapper {
@@ -630,37 +916,107 @@ li:hover {
 	font-size: 1.2rem;
 }
 
+.learnsetToggleButton {
+	width: 100%;
+	padding: 0 24px;
+	border: 0;
+	background: transparent;
+	color: white;
+	font-family: inherit;
+	position: relative;
+	display: block;
+	text-align: center;
+	line-height: 1.2;
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+.learnsetToggleButton span {
+	color: white;
+}
+
+.learnsetToggleChevron {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	font-size: 1rem;
+	line-height: 1;
+}
+
+.learnsetToggleWrapper.learnsetToggleCollapsed table {
+	display: none;
+}
+
 #headingWrapper {
-	padding-top: 30px;
+	width: min(980px, calc(100% - 36px));
+	margin: 0 auto;
+	padding: 24px 0 0;
 	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 	flex-direction: column;
-	align-items: center;
+	align-items: stretch;
 	gap: 15px;
 }
 
+#searchPanel {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px 16px;
+	padding: 14px 18px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 16px;
+	background: rgba(255, 255, 255, 0.03);
+}
+
 #speciesControl {
-	padding: 0px 30px 15px 30px;
+	padding: 0;
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
-    margin: auto;
-    justify-content: center;
+    justify-content: flex-start;
+	flex: 1 1 440px;
+}
+
+#favoritesOnlyToggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 8px;
+	color: rgba(255, 255, 255, 0.88);
+	margin: 0;
+	font-size: 0.95rem;
+	user-select: none;
+	padding: 0.15rem 0;
+}
+
+#favoritesOnlyToggle input {
+	width: 16px;
+	height: 16px;
+	accent-color: #e3b341;
 }
 
 #speciesFilterInput, #speciesFilterCategory, #speciesFilterSeparator, #saveFileInputButton, #clearCurrentSave {
 	display: block;
-    padding: 0.2rem;
-    border-radius: 3px;
-    border: 2px solid gray;
-	background: none;
+    padding: 0.5rem 0.7rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+	background: rgba(255, 255, 255, 0.035);
     color: white;
-    font-weight: 550;
+    font-weight: 600;
 	appearance: none;
 	margin: 0;
 }
@@ -668,9 +1024,9 @@ li:hover {
 #speciesFilterCategory {
 	text-align: center;
 	border-right: none;
-	border-radius: 3px 0 0 3px;
+	border-radius: 10px 0 0 10px;
 	cursor: pointer;
-	width: 92px;
+	width: 108px;
 	position: relative;
     right: -1px;
 }
@@ -683,8 +1039,8 @@ li:hover {
 
 #speciesFilterInput {
 	border-left: none;
-	border-radius: 0 3px 3px 0;
-	width: 145px;
+	border-radius: 0 10px 10px 0;
+	width: min(320px, 100%);
 	position: relative;
     left: -1px;
 }
@@ -706,7 +1062,8 @@ li:hover {
 }
 
 #activeFilters {
-    padding-bottom: 12px;
+    padding: 0 6px 12px;
+	justify-content: flex-start;
 }
 
 .activeFilter {
@@ -722,21 +1079,869 @@ li:hover {
 }
 
 #saveWrapper {
+	width: min(980px, calc(100% - 20px));
 	margin: 0 auto;
 	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
 	align-items: center;
 	gap: 10px;
 }
 
-#currentSave {
+#accountWrapper {
+	width: min(980px, calc(100% - 36px));
+	margin: 12px auto 28px;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 14px;
+	padding-bottom: 10px;
 	color: white;
-	color: rgba(255, 255, 255, 0.5);
-	gap: 0px 0.4rem;
+}
+
+#speciesBrowserControls {
+	width: min(980px, calc(100% - 36px));
+	margin: 0 auto 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+#backendStatus,
+#accountStats,
+.authStatusMessage,
+.infoAccountActionsMessage,
+.sharedTeamMeta,
+#accountTeamsEmpty {
+	color: rgba(255, 255, 255, 0.72);
+	text-align: center;
+}
+
+#backendStatus[data-tone="success"],
+.authStatusMessage[data-tone="success"] {
+	color: #9be7a5;
+}
+
+#backendStatus[data-tone="warn"],
+.authStatusMessage[data-tone="warn"] {
+	color: #ffd166;
+}
+
+#backendStatus[data-tone="error"],
+.authStatusMessage[data-tone="error"] {
+	color: #ff8a80;
+}
+
+#navAccountCluster #backendStatus {
+	max-width: 340px;
+	font-size: 0.82rem;
+	text-align: right;
+}
+
+#accountSignedOut,
+#accountSignedIn {
+	width: auto;
+}
+
+#accountCreateTeamRow,
+.accountTeamActions,
+.infoAccountRow {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+}
+
+#accountEmail,
+#accountUsername {
+	font-weight: 550;
+}
+
+#accountEmail,
+#accountUsername,
+#refreshAccountButton,
+#signOutButton {
+	white-space: nowrap;
+}
+
+#accountUsername {
+	font-size: 0.9rem;
+}
+
+#accountEmail {
+	font-size: 0.78rem;
+	color: rgba(255, 255, 255, 0.62);
+}
+
+#accountWorkspaceHeader {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+	margin-top: 4px;
+}
+
+.accountWorkspaceTitle {
+	font-size: 1.12rem;
+	font-weight: 750;
+	text-align: center;
+}
+
+#accountTeamsList,
+.sharedTeamMembers {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 10px;
+}
+
+.accountTeamCard,
+.sharedTeamMemberCard,
+.infoAccountActions {
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: rgba(255, 255, 255, 0.04);
+	border-radius: 10px;
+	padding: 12px;
+}
+
+.accountTeamCardActive {
+	border-color: rgba(255, 255, 255, 0.38);
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.accountTeamTitle,
+.sharedTeamTitle,
+.infoAccountActionsTitle {
+	font-size: 1rem;
+	font-weight: 700;
+	color: white;
+	text-align: center;
+}
+
+.accountTeamMeta,
+.sharedTeamMemberMoves,
+.sharedTeamMemberNickname {
+	color: rgba(255, 255, 255, 0.7);
+	font-size: 0.92rem;
+}
+
+.teamDexRoster {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 10px;
+	margin-top: 12px;
+}
+
+.teamDexRosterCompact {
+	grid-template-columns: 1fr;
+	gap: 8px;
+}
+
+.teamDexSlot {
+	display: grid;
+	grid-template-columns: 30px 56px minmax(0, 1fr);
+	align-items: center;
+	gap: 10px;
+	padding: 12px 10px;
+	border-radius: 10px;
+	background: linear-gradient(180deg, rgba(92, 169, 224, 0.22), rgba(53, 92, 150, 0.18));
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	min-height: 92px;
+}
+
+.teamDexSlotCompact {
+	grid-template-columns: 28px 48px minmax(0, 1fr);
+	padding: 8px;
+	gap: 8px;
+}
+
+.teamDexSlotSummary {
+	position: relative;
+	grid-template-columns: 1fr;
+	justify-items: center;
+	align-content: center;
+	justify-content: center;
+	padding: 14px 10px;
+	min-height: 120px;
+}
+
+.teamDexSlotSummaryFilled {
+	cursor: help;
+	overflow: visible;
+}
+
+.teamDexSlotSummary .teamDexSlotNumber {
+	position: absolute;
+	top: 10px;
+	left: 12px;
+}
+
+.teamDexSlotSummary .teamDexSlotSprite {
+	width: 64px;
+	height: 64px;
+	object-fit: contain;
+}
+
+.teamDexSlotNumber {
+	font-size: 1.1rem;
+	font-weight: 700;
+	color: rgba(255, 255, 255, 0.88);
+	text-align: center;
+}
+
+.teamDexSlotSprite {
+	width: 48px;
+	height: 48px;
+	image-rendering: pixelated;
+}
+
+.teamDexSlotCompact .teamDexSlotSprite {
+	width: 40px;
+	height: 40px;
+}
+
+.teamDexSlotInfo {
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+	text-align: center;
+}
+
+.teamDexSlotName {
+	font-size: 1rem;
+	font-weight: 700;
+	color: white;
+	line-height: 1.1;
+}
+
+.teamDexSlotSpecies,
+.teamDexSlotMoves,
+.teamDexSlotEmpty {
+	font-size: 0.84rem;
+	color: rgba(255, 255, 255, 0.7);
+	line-height: 1.3;
+}
+
+.teamDexSlotEmpty {
+	grid-column: span 2;
+	text-align: center;
+	font-style: italic;
+}
+
+.teamDexSlotSummary .teamDexSlotEmpty {
+	grid-column: auto;
+	align-self: center;
+	padding-top: 10px;
+}
+
+.teamDexHoverCard {
+	position: absolute;
+	left: 50%;
+	bottom: calc(100% + 10px);
+	transform: translateX(-50%);
+	width: 420px;
+	padding: 10px 12px;
+	border-radius: 12px;
+	background: rgb(13, 16, 20);
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	box-shadow: 0 14px 30px rgba(0, 0, 0, 0.42);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 120ms ease;
+	z-index: 20;
+}
+
+.teamDexSlotSummaryFilled:hover .teamDexHoverCard,
+.teamDexSlotSummaryFilled:focus-within .teamDexHoverCard,
+.teamDexSlotSummaryFilled:focus .teamDexHoverCard {
+	opacity: 1;
+}
+
+.teamDexHoverTitle {
+	font-size: 0.98rem;
+	font-weight: 700;
+	color: white;
+	line-height: 1.25;
+	margin-bottom: 8px;
+}
+
+.teamDexHoverAbilityRow,
+.teamMemberDetailAbility,
+.teamMemberDetailMove {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.teamDexHoverAbilityRow,
+.teamMemberDetailAbility {
+	margin-bottom: 8px;
+}
+
+.teamDexAbilityBadge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 36px;
+	padding: 2px 8px;
+	border-radius: 999px;
+	font-size: 0.74rem;
+	font-weight: 700;
+	color: #0d1117;
+	background: #9be7a5;
+}
+
+.teamDexAbilityBadgeHidden {
+	background: #ffd166;
+}
+
+.teamDexHoverAbilityText,
+.teamMemberDetailAbility,
+.teamMemberDetailSpecies,
+.teamMemberDetailMoveName,
+.teamDexHoverMoveName,
+.teamDexHoverEmpty {
+	color: rgba(255, 255, 255, 0.84);
+}
+
+.teamDexHoverMoves,
+.teamMemberDetailMoves {
+	display: grid;
+	gap: 6px;
+}
+
+.teamDexHoverMoveRow {
+	display: grid;
+	grid-template-columns: 72px 28px minmax(0, 1fr) auto;
+	align-items: center;
+	column-gap: 16px;
+}
+
+.teamDexHoverMoveTypeWrapper .typeWrapper,
+.teamMemberDetailMove .teamDexHoverMoveTypeWrapper .typeWrapper {
+	transform: scale(0.72);
+	transform-origin: center center;
+	margin: 0;
+}
+
+.teamDexHoverMoveTypeWrapper,
+.teamMemberDetailMove .teamDexHoverMoveTypeWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 72px;
+}
+
+.teamDexHoverMoveSplitWrapper,
+.teamMemberDetailMove .teamDexHoverMoveSplitWrapper {
+	width: 37px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.teamDexHoverMoveSplit,
+.teamMemberDetailMove .teamDexHoverMoveSplit {
+	width: 27px;
+	height: 27px;
+	image-rendering: pixelated;
+	object-fit: contain;
+}
+
+.teamDexHoverMoveName,
+.teamMemberDetailMoveName {
+	font-size: 0.88rem;
+	line-height: 1.2;
+	text-align: left;
+}
+
+.teamDexHoverMoveName {
+	flex: 1 1 auto;
+	min-width: 0;
+	white-space: nowrap;
+}
+
+.teamDexHoverMoveStats {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 4px;
+	white-space: nowrap;
+}
+
+.teamDexHoverMoveStat {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2px 8px;
+	border-radius: 999px;
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	background: rgba(255, 255, 255, 0.06);
+	color: rgba(255, 255, 255, 0.78);
+	font-size: 0.72rem;
+	font-weight: 700;
+	white-space: nowrap;
+	font-variant-numeric: tabular-nums;
+}
+
+.teamDexHoverMoveStatPp,
+.teamMemberDetailMoveStatPp {
+	min-width: 5.35ch;
+}
+
+.teamMemberDetailMove {
+	justify-content: space-between;
+}
+
+.teamMemberDetailMoveName {
+	flex: 1 1 auto;
+}
+
+.teamMemberDetailMoveStats {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: 6px;
+}
+
+.teamMemberDetailMoveStat {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2px 8px;
+	border-radius: 999px;
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	background: rgba(255, 255, 255, 0.06);
+	color: rgba(255, 255, 255, 0.78);
+	font-size: 0.74rem;
+	font-weight: 700;
+	white-space: nowrap;
+	font-variant-numeric: tabular-nums;
+}
+
+.teamMemberDetailSection {
+	width: min(420px, 100%);
+	margin: 8px auto 4px;
+	padding: 12px 14px;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: rgba(255, 255, 255, 0.04);
+	display: grid;
+	gap: 8px;
+}
+
+.teamMemberDetailEditor {
+	display: grid;
+	gap: 10px;
+	margin-top: 6px;
+	padding-top: 10px;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.teamMemberDetailEditorMoves {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 8px;
+}
+
+.teamMemberDetailEditorActions {
+	display: flex;
+	justify-content: center;
+}
+
+.teamMemberDetailHeading,
+.teamMemberDetailName {
+	color: white;
+	font-weight: 700;
+	text-align: center;
+}
+
+.teamMemberDetailHeading {
+	font-size: 0.86rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.62);
+}
+
+.teamDexSlotTypesWrapper {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.teamDexSlotTypesWrapper .typeWrapper {
+	transform: scale(0.88);
+	transform-origin: center center;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.accountTeamActions {
+	margin-top: 8px;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	justify-content: stretch;
+	align-items: stretch;
+	gap: 10px;
+}
+
+.accountTeamActions > * {
+	min-width: 0;
+}
+
+.accountTeamActions .teamActionToggle {
+	grid-column: 1 / -1;
+}
+
+.accountTeamActions .teamActionShare {
+	grid-column: 1 / -1;
+}
+
+.accountTeamActions .accountSelect {
+	display: block;
+	width: 100%;
+	min-width: 0;
+	min-height: 38px;
+	padding: 0.5rem 2rem 0.5rem 0.85rem;
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	background: rgba(255, 255, 255, 0.035);
+	color: white;
+	font-weight: 650;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image:
+		linear-gradient(45deg, transparent 50%, rgba(255, 255, 255, 0.72) 50%),
+		linear-gradient(135deg, rgba(255, 255, 255, 0.72) 50%, transparent 50%),
+		linear-gradient(to right, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12));
+	background-position:
+		calc(100% - 16px) calc(50% - 2px),
+		calc(100% - 11px) calc(50% - 2px),
+		calc(100% - 2.25rem) 50%;
+	background-size: 5px 5px, 5px 5px, 1px 58%;
+	background-repeat: no-repeat;
+	text-transform: capitalize;
+}
+
+.accountTeamActions .teamActionActive {
+	grid-column: 1 / -1;
+}
+
+.sharedTeamToggle {
+	align-self: center;
+	padding: 0.32rem 0.7rem;
+	border-radius: 6px;
+	border: 2px solid gray;
+	background: none;
+	color: white;
+	font-weight: 550;
+	appearance: none;
+	margin-bottom: 10px;
+}
+
+.teamActionButton::before {
+	display: inline-block;
+	margin-right: 0.38rem;
+}
+
+.teamActionToggle[data-expanded="true"]::before {
+	content: "▾";
+}
+
+.teamActionToggle[data-expanded="false"]::before {
+	content: "▸";
+}
+
+.teamActionShare::before {
+	content: "↗";
+}
+
+.teamActionUse::before {
+	content: "◎";
+}
+
+.teamActionActive::before {
+	content: "●";
+}
+
+.teamActionDelete::before {
+	content: "✕";
+}
+
+.sharedTeamMissing {
+	color: white;
+	text-align: center;
+	padding: 8px 12px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.03);
+}
+
+.sharedTeamMemberSlot,
+.sharedTeamMemberSpecies {
+	font-weight: 600;
+	color: white;
+}
+
+#sharedTeamView {
+	width: min(860px, calc(100% - 30px));
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	color: white;
+}
+
+.sharedTeamMembers {
+	display: flex;
+	flex-direction: column;
+}
+
+.sharedTeamToggle:hover {
+	background: rgba(255, 255, 255, 0.075);
+}
+
+@media (max-width: 991.98px) {
+	.teamDexRoster {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+#newTeamNameInput,
+#authEmailInput,
+#authPasswordInput,
+#authUsernameInput,
+#authDisplayNameInput,
+.accountSelect,
+.infoAccountTeamBuilder input {
+	padding: 0.5rem 0.75rem;
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	background: rgba(0, 0, 0, 0.16);
+	color: white;
+}
+
+#openAuthModalButton,
+#refreshAccountButton,
+#signOutButton,
+#createTeamButton,
+#authPrimaryButton,
+#authModeTabs button,
+#authModePromptButton,
+.accountTeamActions button,
+.infoAccountActions button {
+	padding: 0.5rem 0.85rem;
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	background: rgba(255, 255, 255, 0.035);
+	color: white;
+	font-weight: 650;
+	appearance: none;
+}
+
+#authContent {
+	color: white;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+#authSubtitle {
+	margin: -2px 0 6px;
+	color: rgba(255, 255, 255, 0.72);
+	text-align: center;
+}
+
+#authModeTabs {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	gap: 8px;
+}
+
+#authModeTabs button {
+	flex: 1 1 0;
+}
+
+.authInputWrap {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 0.1rem 0.65rem;
+	border-radius: 8px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	background: rgba(0, 0, 0, 0.16);
+}
+
+.authInputWrap input {
+	flex: 1 1 auto;
+	border: 0 !important;
+	background: transparent !important;
+	padding: 0.35rem 0 0.35rem 0 !important;
+	outline: none;
+}
+
+.authInputIcon {
+	width: 18px;
+	flex: 0 0 18px;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.7);
+	font-weight: 700;
+}
+
+.authFieldGroup {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.authFieldHint {
+	font-size: 0.82rem;
+	color: rgba(255, 255, 255, 0.58);
+}
+
+#authActions {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: center;
+}
+
+#authModePrompt {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+#authModePromptButton {
+	padding-inline: 0.55rem;
+}
+
+#authPrimaryButton[disabled],
+#authModeTabs button[disabled],
+#authModePromptButton[disabled] {
+	opacity: 0.65;
+	cursor: default;
+}
+
+.infoAccountActions {
+	width: min(534px, 100%);
+	margin: 0 auto 8px;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.infoAccountActions .infoAccountActionsToggle {
+	width: 100%;
+	padding: 2px 4px;
+	border: 0 !important;
+	background: transparent !important;
+	box-shadow: none !important;
+	color: inherit;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+	border-radius: 8px;
+}
+
+.infoAccountActions .infoAccountActionsToggle:hover {
+	background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.infoAccountActionsChevron {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	flex: 0 0 24px;
+	font-size: 1.1rem;
+	line-height: 1;
+	color: rgba(255, 255, 255, 0.78);
+	transform: none;
+}
+
+.infoAccountTeamBuilder {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.infoAccountMoveGrid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 8px;
+}
+
+#currentSave {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	padding: 0.25rem 0;
+	color: rgba(255, 255, 255, 0.7);
+	gap: 0.2rem 0.45rem;
+}
+
+#speciesTable {
+	margin-top: 24px;
 }
 
 #currentSave.hide, #saveFileInputButton.hide {
@@ -749,21 +1954,23 @@ li:hover {
 }
 
 #saveFileInputButton, #clearCurrentSave {
-	padding: 0.2rem 0.6rem;
+	padding: 0.5rem 0.85rem;
 	-webkit-flex: 0;
 	flex: 0;
 }
 
 #showHelpButton {
-	padding: 0.2rem 0.6rem;
+	padding: 0.5rem 0.85rem;
 	-webkit-flex: 0;
 	flex: 0;
-	display: block;
-	border-radius: 3px;
-	border: 2px solid gray;
-	background: none;
-	color: white;
-	font-weight: 550;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	background: rgba(255, 255, 255, 0.035);
+	color: inherit;
+	font-weight: 650;
 	appearance: none;
 	margin: 0;
 }
@@ -808,7 +2015,7 @@ tbody {
 	cursor: auto;
 }
 
-.active, .sortOption:hover, #speciesFilterInput:hover, #speciesFilterCategory:hover, #speciesFilterInput:focus, #showHelpButton:hover, #saveFileInputButton:hover, #clearCurrentSave:hover, .activeFilter:hover {
+.active, .sortOption:hover, #speciesFilterInput:hover, #speciesFilterCategory:hover, #speciesFilterInput:focus, .activeFilter:hover {
 	background: rgba(255, 255, 255, 0.075);
 }
 
@@ -829,6 +2036,21 @@ tbody {
 	height: 85.8px;
 }
 
+.speciesRow > td,
+.table-dark.table-striped tbody tr.speciesRow:nth-of-type(odd) > td,
+.table-dark.table-hover tbody tr.speciesRow:hover > td {
+	background-image: none !important;
+	box-shadow: none !important;
+}
+
+.speciesRow > td:first-child {
+	border-left: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.speciesRow > td:last-child {
+	border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
 .speciesDexIDWrapper {
 	min-width: 67.9px;
 	font-weight: 700;
@@ -843,12 +2065,84 @@ tbody {
 	font-size: 1.2rem;
 }
 
+.infoNameHeader,
+.speciesNameHeader {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.infoNameHeader {
+	justify-content: center;
+}
+
+.speciesNameHeader {
+	justify-content: flex-start;
+}
+
 td.speciesNameWrapper {
 	font-weight: 700;
+	text-align: left;
+}
+
+.speciesNameContent {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
 }
 
 .speciesNameLabel {
 	font-weight: 700;
+	text-align: left;
+}
+
+.speciesCoverageFlag {
+	align-self: flex-start;
+	display: inline-block;
+}
+
+.favoriteStarButton {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	z-index: 2;
+	pointer-events: auto;
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: transparent;
+	-webkit-text-stroke: 1.7px #e3b341;
+	text-shadow: none;
+	font-size: 1.15rem;
+	line-height: 1;
+	cursor: pointer;
+	transition: transform 120ms ease, color 120ms ease, opacity 120ms ease;
+}
+
+.favoriteStarButton:hover {
+	transform: scale(1.08);
+}
+
+.favoriteStarButtonActive {
+	color: #e3b341;
+	-webkit-text-stroke: 0;
+	text-shadow: 0 0 10px rgba(227, 179, 65, 0.2);
+}
+
+.speciesNameFavoriteStar {
+	width: 22px;
+	height: 22px;
+	font-size: 1rem;
+}
+
+.infoNameFavoriteStar {
+	width: 34px;
+	height: 34px;
+	font-size: 1.4rem;
 }
 
 .speciesCoverageFlag {
@@ -862,6 +2156,7 @@ td.speciesNameWrapper {
 	border-radius: 15px;
 	margin: 2px 3px;
 	font-weight: 550;
+	text-align: center;
 	text-shadow: 1px 1px black;
 	border: 2px white solid;
     box-shadow: 1px 2px #00000047;    
@@ -1104,8 +2399,61 @@ td.moveDescriptionWrapper {
 }
 
 @media (max-width: 768px) {
+	#topNav,
+	#navActions,
+	#navQuickActions,
+	#navAccountCluster {
+		justify-content: center;
+	}
+
+	#navBrand {
+		justify-content: center;
+		text-align: center;
+	}
+
+	#accountMenu,
+	#accountSignedIn,
+	#accountSignedOut {
+		width: 100%;
+	}
+
+	#accountSummaryButton,
+	#openAuthModalButton {
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	#accountDropdown {
+		left: 0;
+		right: 0;
+		min-width: 0;
+	}
+
+	#navAccountCluster #backendStatus {
+		max-width: none;
+		text-align: center;
+	}
+
 	#saveWrapper {
 		max-width: 399px;
+		flex-direction: column;
+	}
+
+	#headingWrapper,
+	#searchPanel,
+	#accountWrapper,
+	#sharedTeamView {
+		width: min(100%, calc(100% - 24px));
+		max-width: 399px;
+	}
+
+	#searchPanel {
+		justify-content: center;
+	}
+
+	#speciesControl {
+		flex: 1 1 100%;
+		justify-content: center;
 	}
 
 	#currentSaveDash {
@@ -1115,5 +2463,13 @@ td.moveDescriptionWrapper {
 	#clearCurrentSave {
 		margin-top: 8px;
 		padding: 0.2rem 4rem;
+	}
+
+	.infoAccountMoveGrid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.teamDexRoster {
+		grid-template-columns: minmax(0, 1fr);
 	}
 }

@@ -24,6 +24,26 @@ python3 -m http.server 8080
 
 Then open `http://localhost:8080`. A local server avoids browser restrictions on loading modules or `file://` quirks.
 
+## Publishing on GitHub Pages
+
+This repo is configured for GitHub Pages via [`.github/workflows/deploy-pages.yml`](/Users/dkenzox/dev/rad-red-dex/.github/workflows/deploy-pages.yml).
+
+Expected public URL for this repository:
+
+- `https://dkenzox.github.io/rad-red-dex/`
+
+To publish:
+
+1. Push this repository to the `main` branch on GitHub.
+2. In the GitHub repository, open `Settings` -> `Pages`.
+3. Under `Build and deployment`, set `Source` to `GitHub Actions`.
+4. Wait for the `Deploy to GitHub Pages` workflow to finish.
+
+Notes:
+
+- The previous custom-domain file was removed, because `dex.radicalred.net` is not owned by you.
+- The site now uses the local `favicon.ico`, so GitHub Pages does not depend on `raw.githubusercontent.com` for the tab icon.
+
 ## License
 
 Respect the license and attribution of the upstream **Radical-Red-Pokedex** project; this fork inherits the same data and architectural debt unless you replace or relicense components explicitly.

@@ -1,2 +1,7 @@
 
 *.s
+.env
+.env.*
+supabase/.temp/
+supabase/.branches/
+src/supabaseConfig.local.js

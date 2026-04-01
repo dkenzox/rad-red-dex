@@ -1,0 +1,1 @@
+-- Intentionally empty. This keeps `supabase db reset` happy while the app relies on migrations only.

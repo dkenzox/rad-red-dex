@@ -68,7 +68,10 @@ function setupTables() {
 		[cmp(x => x.dexID), cmp(x => x.order)]
 	);
 	
-	populateTable('speciesTable', Object.values(species));
+	if (typeof refreshSpeciesResults === 'function')
+		refreshSpeciesResults();
+	else
+		populateTable('speciesTable', Object.values(species));
 	
 	window.onscroll = function(ev) {
 		if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {

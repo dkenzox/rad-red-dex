@@ -18,6 +18,17 @@ scaledLevels = null;
 capIDs = null;
 sprites = null;
 saveData = null;
+supabaseClient = null;
+authSession = null;
+currentProfile = null;
+userTeams = [];
+guestTeams = [];
+favoriteSpecies = {};
+backendEnabled = false;
+currentSpeciesPanelMon = null;
+accountStatusTimeout = null;
+activeTeamId = null;
+teamVisibilityState = {};
 
 let trackers = {};
 let filters = {};

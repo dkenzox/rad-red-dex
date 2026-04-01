@@ -4,6 +4,7 @@ let inputWrapper = document.getElementById('speciesFilterInputWrapper');
 let selectFilterCategory = document.getElementById('speciesFilterCategory');
 let categoryDropdown = document.getElementById('speciesFilterCategoryDropdown');
 let categoryWrapper = document.getElementById('speciesFilterCategoryWrapper');
+let favoritesOnlyCheckbox = document.getElementById('favoritesOnlyCheckbox');
 let selectedFilter = null;
 
 function setupFilters() {
@@ -80,6 +81,29 @@ function setupFilters() {
 		event.preventDefault();
 		inputDropdown.innerHTML = '';
 	});
+}
+
+function getFilteredSpeciesResults() {
+	let results = Object.values(species);
+	for (const active of Object.values(filters).reduce((list, x) => list.concat(x.active), []))
+		results = results.filter(active.func);
+
+	if (favoritesOnlyCheckbox?.checked)
+		results = results.filter(mon => typeof isSpeciesFavorited === 'function' && isSpeciesFavorited(mon.ID));
+
+	return results;
+}
+
+function refreshSpeciesResults() {
+	let results = getFilteredSpeciesResults();
+	populateTable('speciesTable', results);
+	return results;
+}
+
+function toggleFavoritesOnlyFilter(enabled) {
+	if (favoritesOnlyCheckbox)
+		favoritesOnlyCheckbox.checked = Boolean(enabled);
+	refreshSpeciesResults();
 }
 
 function buildDropdown(event) {
@@ -305,12 +329,7 @@ function addFilter(filter, option) {
 	};
 	activeFiltersDisplay.append(active.button);
 
-	let results = Object.values(species);
-	for (const a of Object.values(filters).reduce((list, x) => list.concat(x.active), [])) {
-		results = results.filter(a.func);
-	}
-	
-	populateTable('speciesTable', results);
+	let results = refreshSpeciesResults();
 
 	if (results.length === 1) {//&& filter.name === 'Name') {
 		removeFilter(filter, active);
@@ -323,12 +342,7 @@ function removeFilter(filter, active) {
 
 	filter.active.splice(filter.active.findIndex(x => x.option == active.option), 1);
 
-	let results = Object.values(species);
-	for (const a of Object.values(filters).reduce((list, x) => list.concat(x.active), [])) {
-		results = results.filter(a.func);
-	}
-	
-	populateTable('speciesTable', results);
+	refreshSpeciesResults();
 }
 
 function removeFilters() {
