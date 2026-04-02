@@ -1,0 +1,954 @@
+{
+  "generated_at": "2026-04-02T02:49:26.271Z",
+  "source_files": [
+    "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Mega Stones.csv",
+    "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Move Tutors.csv",
+    "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Other Useful Items.csv",
+    "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+    "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Shops.csv",
+    "Item, TM, and Move Tutor Locations v4.1 - Radical Red - TMs & HMs.csv",
+    "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+    "Pokémon Locations & Raid Dens v4.1 - Radical Red - Egg Vendor & Game Corner.csv",
+    "Pokémon Locations & Raid Dens v4.1 - Radical Red - Fishing & Surfing.csv",
+    "Pokémon Locations & Raid Dens v4.1 - Radical Red - Fossils.csv",
+    "Pokémon Locations & Raid Dens v4.1 - Radical Red - Gifts.csv",
+    "Pokémon Locations & Raid Dens v4.1 - Radical Red - Grass & Caves.csv",
+    "Pokémon Locations & Raid Dens v4.1 - Radical Red - Mystery Gifts.csv",
+    "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+    "Pokémon Locations & Raid Dens v4.1 - Radical Red - Safari Zone.csv",
+    "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+    "Pokémon Locations & Raid Dens v4.1 - Radical Red - Trades.csv",
+    "Pokémon Locations & Raid Dens v4.1 - Radical Red - Unobtainables.csv"
+  ],
+  "counts": {
+    "locations": 832,
+    "pokemon_acquisitions": 1808,
+    "move_acquisitions": 212,
+    "item_acquisitions": 661,
+    "raid_dens": 167,
+    "notes": 0,
+    "warnings": 184
+  },
+  "warnings": [
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Mega Stones.csv",
+      "rawName": "Charizardite X"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Mega Stones.csv",
+      "rawName": "Blastoisinite"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Mega Stones.csv",
+      "rawName": "Kangaskhanite"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Mega Stones.csv",
+      "rawName": "Charizardite Y"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Mega Stones.csv",
+      "rawName": "Houndoominite"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Mega Stones.csv",
+      "rawName": "Aerodactylite"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Time Changer"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "PokéDex"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Poké Vial"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "DexNav"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Infinite Repel"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Aerodactylite"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Thunder Stone"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Helix Fossil / Dome Fossil"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Kangaskhanite"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Calcium x1"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Up-Grade"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Charizardite X/Y"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Blastoisinite"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Beedrilite"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Charizardite Y/X"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Gardevoirite Cameruptite"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Hidden Costume"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Houndoominite"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Thunder Stone"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Heavy-Duty-Boots"
+    },
+    {
+      "type": "unmatched_move",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Supercell Slam"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Bugium Z"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Overworld Items.csv",
+      "rawName": "Mewium Z"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Shops.csv",
+      "rawName": "Thunder Stone"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Shops.csv",
+      "rawName": "Beast Ball (Need 8th Badge)"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Shops.csv",
+      "rawName": "Pikashunium Z"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Shops.csv",
+      "rawName": "Alolaraichium Z"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Shops.csv",
+      "rawName": "Necromizer (once)"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Shops.csv",
+      "rawName": "Ultranecrozium Z"
+    },
+    {
+      "type": "unmatched_move",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - TMs & HMs.csv",
+      "rawName": "Supercell Slam"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Bugium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "One Island, Kindle Road, from Bugsy after defeating him in a rematch."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Fairium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "One Island, Mt. Ember, northeast of the mountain."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Fightinium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "One Island, from Dumbass Jojo Fan after defeating him in rematch."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Flyinium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Rock Tunnel area near the Power Plant."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Ghostium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "From Morty in the Pokémon Tower, post-trial defeat at the top."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Groundium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Three Island Port, in the tunnel, from the digger."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Icium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Seafoam Island secret area, from Pryce after defeating him in a rematch."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Normalium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Two Island, near Joyful Game Corner, from Whitney post-rematch victory."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Psychium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Three Island, Berry Forest, from Lostelle after defeating Mew."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Steelium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Three Island, from a guy outside after defeating the Bikers."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Waterium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Saffron City, from Gian (Mudkip Fan) after defeating him in a rematch."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Eevium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Pallet Town, Oak's Lab, from Prof. Oak after a battle."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Marshadium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "In the Pokémon Tower, Dropped by Marshadow after top tower battle."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Mewium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Berry Forest, from Gatekeeper Owen after the hidden Mew event's battle."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Mimikium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Pokémon Tower, south of the Gengar puzzle room at the top of the Tower."
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Tapunium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "One Island's Pokémon Center, from the Battle Simulator BP Exchange. (3 BP)"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Snorlium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "One Island's Pokémon Center, from the Battle Simulator BP Exchange. (3 BP)"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Pikanium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "One Island's Pokémon Center, from the Battle Simulator BP Exchange. (3 BP)"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Pikashunium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "One Island's Pokémon Center, from the Battle Simulator BP Exchange. (5 BP)"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Aloraichium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "One Island's Pokémon Center, from the Battle Simulator BP Exchange. (5 BP)"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Incinium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "One Island's Pokémon Center, from the Battle Simulator BP Exchange. (5 BP)"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Decidium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "One Island's Pokémon Center, from the Battle Simulator BP Exchange. (5 BP)"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Primarium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "One Island's Pokémon Center, from the Battle Simulator BP Exchange. (5 BP)"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Lycanium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "One Island's Pokémon Center, from the Battle Simulator BP Exchange. (25 BP)"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "Kommonium"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Item, TM, and Move Tutor Locations v4.1 - Radical Red - Z-Crystals.csv",
+      "rawName": "One Island's Pokémon Center, from the Battle Simulator BP Exchange. (25 BP)"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Egg Vendor & Game Corner.csv",
+      "rawName": "Pikachu-Popstar"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Egg Vendor & Game Corner.csv",
+      "rawName": "Pikachu-Rockstar"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Egg Vendor & Game Corner.csv",
+      "rawName": "Any Cap Pikachu"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Gifts.csv",
+      "rawName": "Tauros-Blaze"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Gifts.csv",
+      "rawName": "Tauros-Aqua"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Grass & Caves.csv",
+      "rawName": "Deerling-Winter"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Grass & Caves.csv",
+      "rawName": "Burmy-Trash"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Grass & Caves.csv",
+      "rawName": "Burmy-Trash"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Grass & Caves.csv",
+      "rawName": "Deerling-Autumn"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Grass & Caves.csv",
+      "rawName": "Pumpkaboo-La"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Grass & Caves.csv",
+      "rawName": "Squawkabilly-W"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Grass & Caves.csv",
+      "rawName": "Pumpkaboo-La"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "Ability Capsule"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "--"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "--"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "--"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "--"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "--"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "--"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "--"
+    },
+    {
+      "type": "unmatched_item",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Raid Dens.csv",
+      "rawName": "--"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Deoxys-A"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Giratina-O"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Tornadus-I"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Tornadus-T"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Thundurus-I"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Thundurus-T"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Landorus-I"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Landorus-T"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Kyurem-B"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Hoopa-U"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Necrozma-DM"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Magearna-Original"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Urshifu-Single"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Urshifu-Rapid"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Enamorus-I"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Statics & Special Pokemon.csv",
+      "rawName": "Enamorus-T"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Trades.csv",
+      "rawName": "???"
+    },
+    {
+      "type": "unmatched_species",
+      "sourceFile": "Pokémon Locations & Raid Dens v4.1 - Radical Red - Unobtainables.csv",
+      "rawName": "Magearna-Original"
+    }
+  ]
+}

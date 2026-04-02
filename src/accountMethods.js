@@ -477,19 +477,20 @@ function buildTeamMemberDetailSection(member, mon, slot, options = {}) {
 	return wrapper;
 }
 
-function displayTeamMemberPanel(member, slot, options = {}) {
+async function displayTeamMemberPanel(member, slot, options = {}) {
 	const mon = getMemberSpecies(member);
 	if (!mon)
 		return;
 
-	displaySpeciesPanel(mon);
+	await displaySpeciesPanel(mon);
+	const detailedMon = currentSpeciesPanelMon || mon;
 
 	const infoDisplay = document.getElementById("speciesPanelInfoDisplay");
 	const accountActionsHost = document.getElementById("speciesPanelAccountActionsHost");
 	if (!infoDisplay || !accountActionsHost)
 		return;
 
-	const detailSection = buildTeamMemberDetailSection(member, mon, slot, options);
+	const detailSection = buildTeamMemberDetailSection(member, detailedMon, slot, options);
 	infoDisplay.insertBefore(detailSection, accountActionsHost);
 }
 
@@ -515,7 +516,7 @@ function buildTeamMemberDexSlot(member, slot, options = {}) {
 	const mon = getMemberSpecies(member);
 	const sprite = document.createElement("img");
 	sprite.className = "teamDexSlotSprite";
-	sprite.src = getSprite(member.species_id || 0);
+	setSpriteImage(sprite, getSprite(member.species_id || 0));
 	sprite.alt = mon?.key || `Species ${member.species_id}`;
 
 	if (summaryOnly) {

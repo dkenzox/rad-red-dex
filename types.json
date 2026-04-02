@@ -1,0 +1,1619 @@
+{
+  "byId": {
+    "0": {
+      "ID": 0,
+      "name": "Normal",
+      "color": "#A8A77A",
+      "matchup": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        0,
+        1,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "1": {
+      "ID": 1,
+      "name": "Fighting",
+      "color": "#C22E28",
+      "matchup": [
+        20,
+        0,
+        5,
+        5,
+        0,
+        20,
+        5,
+        1,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        20,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5
+      ]
+    },
+    "2": {
+      "ID": 2,
+      "name": "Flying",
+      "color": "#8571BE",
+      "matchup": [
+        0,
+        20,
+        0,
+        0,
+        0,
+        5,
+        20,
+        0,
+        5,
+        0,
+        0,
+        0,
+        20,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "3": {
+      "ID": 3,
+      "name": "Poison",
+      "color": "#A33EA1",
+      "matchup": [
+        0,
+        0,
+        0,
+        5,
+        5,
+        5,
+        0,
+        5,
+        1,
+        0,
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20
+      ]
+    },
+    "4": {
+      "ID": 4,
+      "name": "Ground",
+      "color": "#B1954F",
+      "matchup": [
+        0,
+        0,
+        1,
+        20,
+        0,
+        20,
+        5,
+        0,
+        20,
+        0,
+        20,
+        0,
+        5,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "5": {
+      "ID": 5,
+      "name": "Rock",
+      "color": "#B6A136",
+      "matchup": [
+        0,
+        5,
+        20,
+        0,
+        5,
+        0,
+        20,
+        0,
+        5,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "6": {
+      "ID": 6,
+      "name": "Bug",
+      "color": "#808F13",
+      "matchup": [
+        0,
+        5,
+        5,
+        5,
+        0,
+        0,
+        0,
+        5,
+        5,
+        0,
+        5,
+        0,
+        20,
+        0,
+        20,
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5
+      ]
+    },
+    "7": {
+      "ID": 7,
+      "name": "Ghost",
+      "color": "#735797",
+      "matchup": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "8": {
+      "ID": 8,
+      "name": "Steel",
+      "color": "#8C8C9E",
+      "matchup": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        0,
+        5,
+        0,
+        5,
+        5,
+        0,
+        5,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20
+      ]
+    },
+    "10": {
+      "ID": 10,
+      "name": "Fire",
+      "color": "#EE8130",
+      "matchup": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        20,
+        0,
+        20,
+        0,
+        5,
+        5,
+        20,
+        0,
+        0,
+        20,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "11": {
+      "ID": 11,
+      "name": "Water",
+      "color": "#6390F0",
+      "matchup": [
+        0,
+        0,
+        0,
+        0,
+        20,
+        20,
+        0,
+        0,
+        0,
+        0,
+        20,
+        5,
+        5,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "12": {
+      "ID": 12,
+      "name": "Grass",
+      "color": "#62A13D",
+      "matchup": [
+        0,
+        0,
+        5,
+        5,
+        20,
+        20,
+        5,
+        0,
+        5,
+        0,
+        5,
+        20,
+        5,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "13": {
+      "ID": 13,
+      "name": "Electric",
+      "color": "#CF9A09",
+      "matchup": [
+        0,
+        0,
+        20,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        5,
+        5,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "14": {
+      "ID": 14,
+      "name": "Psychic",
+      "color": "#F95587",
+      "matchup": [
+        0,
+        20,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "15": {
+      "ID": 15,
+      "name": "Ice",
+      "color": "#65A19E",
+      "matchup": [
+        0,
+        0,
+        20,
+        0,
+        20,
+        0,
+        0,
+        0,
+        5,
+        0,
+        5,
+        5,
+        20,
+        0,
+        0,
+        5,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "16": {
+      "ID": 16,
+      "name": "Dragon",
+      "color": "#6F35FC",
+      "matchup": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "17": {
+      "ID": 17,
+      "name": "Dark",
+      "color": "#705746",
+      "matchup": [
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5
+      ]
+    },
+    "23": {
+      "ID": 23,
+      "name": "Fairy",
+      "color": "#D685AD",
+      "matchup": [
+        0,
+        20,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        5,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "multiplierEncoding": {
+    "0": 1,
+    "1": 0,
+    "5": 0.5,
+    "20": 2
+  },
+  "typeOrder": [
+    {
+      "id": 0,
+      "name": "Normal",
+      "color": "#A8A77A"
+    },
+    {
+      "id": 1,
+      "name": "Fighting",
+      "color": "#C22E28"
+    },
+    {
+      "id": 2,
+      "name": "Flying",
+      "color": "#8571BE"
+    },
+    {
+      "id": 3,
+      "name": "Poison",
+      "color": "#A33EA1"
+    },
+    {
+      "id": 4,
+      "name": "Ground",
+      "color": "#B1954F"
+    },
+    {
+      "id": 5,
+      "name": "Rock",
+      "color": "#B6A136"
+    },
+    {
+      "id": 6,
+      "name": "Bug",
+      "color": "#808F13"
+    },
+    {
+      "id": 7,
+      "name": "Ghost",
+      "color": "#735797"
+    },
+    {
+      "id": 8,
+      "name": "Steel",
+      "color": "#8C8C9E"
+    },
+    {
+      "id": 10,
+      "name": "Fire",
+      "color": "#EE8130"
+    },
+    {
+      "id": 11,
+      "name": "Water",
+      "color": "#6390F0"
+    },
+    {
+      "id": 12,
+      "name": "Grass",
+      "color": "#62A13D"
+    },
+    {
+      "id": 13,
+      "name": "Electric",
+      "color": "#CF9A09"
+    },
+    {
+      "id": 14,
+      "name": "Psychic",
+      "color": "#F95587"
+    },
+    {
+      "id": 15,
+      "name": "Ice",
+      "color": "#65A19E"
+    },
+    {
+      "id": 16,
+      "name": "Dragon",
+      "color": "#6F35FC"
+    },
+    {
+      "id": 17,
+      "name": "Dark",
+      "color": "#705746"
+    },
+    {
+      "id": 23,
+      "name": "Fairy",
+      "color": "#D685AD"
+    }
+  ],
+  "matrix": {
+    "Normal": {
+      "Normal": 1,
+      "Fighting": 1,
+      "Flying": 1,
+      "Poison": 1,
+      "Ground": 1,
+      "Rock": 0.5,
+      "Bug": 1,
+      "Ghost": 0,
+      "Steel": 0.5,
+      "Fire": 1,
+      "Water": 1,
+      "Grass": 1,
+      "Electric": 1,
+      "Psychic": 1,
+      "Ice": 1,
+      "Dragon": 1,
+      "Dark": 1,
+      "Fairy": 1
+    },
+    "Fighting": {
+      "Normal": 2,
+      "Fighting": 1,
+      "Flying": 0.5,
+      "Poison": 0.5,
+      "Ground": 1,
+      "Rock": 2,
+      "Bug": 0.5,
+      "Ghost": 0,
+      "Steel": 2,
+      "Fire": 1,
+      "Water": 1,
+      "Grass": 1,
+      "Electric": 1,
+      "Psychic": 0.5,
+      "Ice": 2,
+      "Dragon": 1,
+      "Dark": 2,
+      "Fairy": 0.5
+    },
+    "Flying": {
+      "Normal": 1,
+      "Fighting": 2,
+      "Flying": 1,
+      "Poison": 1,
+      "Ground": 1,
+      "Rock": 0.5,
+      "Bug": 2,
+      "Ghost": 1,
+      "Steel": 0.5,
+      "Fire": 1,
+      "Water": 1,
+      "Grass": 2,
+      "Electric": 0.5,
+      "Psychic": 1,
+      "Ice": 1,
+      "Dragon": 1,
+      "Dark": 1,
+      "Fairy": 1
+    },
+    "Poison": {
+      "Normal": 1,
+      "Fighting": 1,
+      "Flying": 1,
+      "Poison": 0.5,
+      "Ground": 0.5,
+      "Rock": 0.5,
+      "Bug": 1,
+      "Ghost": 0.5,
+      "Steel": 0,
+      "Fire": 1,
+      "Water": 1,
+      "Grass": 2,
+      "Electric": 1,
+      "Psychic": 1,
+      "Ice": 1,
+      "Dragon": 1,
+      "Dark": 1,
+      "Fairy": 2
+    },
+    "Ground": {
+      "Normal": 1,
+      "Fighting": 1,
+      "Flying": 0,
+      "Poison": 2,
+      "Ground": 1,
+      "Rock": 2,
+      "Bug": 0.5,
+      "Ghost": 1,
+      "Steel": 2,
+      "Fire": 2,
+      "Water": 1,
+      "Grass": 0.5,
+      "Electric": 2,
+      "Psychic": 1,
+      "Ice": 1,
+      "Dragon": 1,
+      "Dark": 1,
+      "Fairy": 1
+    },
+    "Rock": {
+      "Normal": 1,
+      "Fighting": 0.5,
+      "Flying": 2,
+      "Poison": 1,
+      "Ground": 0.5,
+      "Rock": 1,
+      "Bug": 2,
+      "Ghost": 1,
+      "Steel": 0.5,
+      "Fire": 2,
+      "Water": 1,
+      "Grass": 1,
+      "Electric": 1,
+      "Psychic": 1,
+      "Ice": 2,
+      "Dragon": 1,
+      "Dark": 1,
+      "Fairy": 1
+    },
+    "Bug": {
+      "Normal": 1,
+      "Fighting": 0.5,
+      "Flying": 0.5,
+      "Poison": 0.5,
+      "Ground": 1,
+      "Rock": 1,
+      "Bug": 1,
+      "Ghost": 0.5,
+      "Steel": 0.5,
+      "Fire": 0.5,
+      "Water": 1,
+      "Grass": 2,
+      "Electric": 1,
+      "Psychic": 2,
+      "Ice": 1,
+      "Dragon": 1,
+      "Dark": 2,
+      "Fairy": 0.5
+    },
+    "Ghost": {
+      "Normal": 0,
+      "Fighting": 1,
+      "Flying": 1,
+      "Poison": 1,
+      "Ground": 1,
+      "Rock": 1,
+      "Bug": 1,
+      "Ghost": 2,
+      "Steel": 1,
+      "Fire": 1,
+      "Water": 1,
+      "Grass": 1,
+      "Electric": 1,
+      "Psychic": 2,
+      "Ice": 1,
+      "Dragon": 1,
+      "Dark": 0.5,
+      "Fairy": 1
+    },
+    "Steel": {
+      "Normal": 1,
+      "Fighting": 1,
+      "Flying": 1,
+      "Poison": 1,
+      "Ground": 1,
+      "Rock": 2,
+      "Bug": 1,
+      "Ghost": 1,
+      "Steel": 0.5,
+      "Fire": 0.5,
+      "Water": 0.5,
+      "Grass": 1,
+      "Electric": 0.5,
+      "Psychic": 1,
+      "Ice": 2,
+      "Dragon": 1,
+      "Dark": 1,
+      "Fairy": 2
+    },
+    "Fire": {
+      "Normal": 1,
+      "Fighting": 1,
+      "Flying": 1,
+      "Poison": 1,
+      "Ground": 1,
+      "Rock": 0.5,
+      "Bug": 2,
+      "Ghost": 1,
+      "Steel": 2,
+      "Fire": 0.5,
+      "Water": 0.5,
+      "Grass": 2,
+      "Electric": 1,
+      "Psychic": 1,
+      "Ice": 2,
+      "Dragon": 0.5,
+      "Dark": 1,
+      "Fairy": 1
+    },
+    "Water": {
+      "Normal": 1,
+      "Fighting": 1,
+      "Flying": 1,
+      "Poison": 1,
+      "Ground": 2,
+      "Rock": 2,
+      "Bug": 1,
+      "Ghost": 1,
+      "Steel": 1,
+      "Fire": 2,
+      "Water": 0.5,
+      "Grass": 0.5,
+      "Electric": 1,
+      "Psychic": 1,
+      "Ice": 1,
+      "Dragon": 0.5,
+      "Dark": 1,
+      "Fairy": 1
+    },
+    "Grass": {
+      "Normal": 1,
+      "Fighting": 1,
+      "Flying": 0.5,
+      "Poison": 0.5,
+      "Ground": 2,
+      "Rock": 2,
+      "Bug": 0.5,
+      "Ghost": 1,
+      "Steel": 0.5,
+      "Fire": 0.5,
+      "Water": 2,
+      "Grass": 0.5,
+      "Electric": 1,
+      "Psychic": 1,
+      "Ice": 1,
+      "Dragon": 0.5,
+      "Dark": 1,
+      "Fairy": 1
+    },
+    "Electric": {
+      "Normal": 1,
+      "Fighting": 1,
+      "Flying": 2,
+      "Poison": 1,
+      "Ground": 0,
+      "Rock": 1,
+      "Bug": 1,
+      "Ghost": 1,
+      "Steel": 1,
+      "Fire": 1,
+      "Water": 2,
+      "Grass": 0.5,
+      "Electric": 0.5,
+      "Psychic": 1,
+      "Ice": 1,
+      "Dragon": 0.5,
+      "Dark": 1,
+      "Fairy": 1
+    },
+    "Psychic": {
+      "Normal": 1,
+      "Fighting": 2,
+      "Flying": 1,
+      "Poison": 2,
+      "Ground": 1,
+      "Rock": 1,
+      "Bug": 1,
+      "Ghost": 1,
+      "Steel": 0.5,
+      "Fire": 1,
+      "Water": 1,
+      "Grass": 1,
+      "Electric": 1,
+      "Psychic": 0.5,
+      "Ice": 1,
+      "Dragon": 1,
+      "Dark": 0,
+      "Fairy": 1
+    },
+    "Ice": {
+      "Normal": 1,
+      "Fighting": 1,
+      "Flying": 2,
+      "Poison": 1,
+      "Ground": 2,
+      "Rock": 1,
+      "Bug": 1,
+      "Ghost": 1,
+      "Steel": 0.5,
+      "Fire": 0.5,
+      "Water": 0.5,
+      "Grass": 2,
+      "Electric": 1,
+      "Psychic": 1,
+      "Ice": 0.5,
+      "Dragon": 2,
+      "Dark": 1,
+      "Fairy": 1
+    },
+    "Dragon": {
+      "Normal": 1,
+      "Fighting": 1,
+      "Flying": 1,
+      "Poison": 1,
+      "Ground": 1,
+      "Rock": 1,
+      "Bug": 1,
+      "Ghost": 1,
+      "Steel": 0.5,
+      "Fire": 1,
+      "Water": 1,
+      "Grass": 1,
+      "Electric": 1,
+      "Psychic": 1,
+      "Ice": 1,
+      "Dragon": 2,
+      "Dark": 1,
+      "Fairy": 0
+    },
+    "Dark": {
+      "Normal": 1,
+      "Fighting": 0.5,
+      "Flying": 1,
+      "Poison": 1,
+      "Ground": 1,
+      "Rock": 1,
+      "Bug": 1,
+      "Ghost": 2,
+      "Steel": 1,
+      "Fire": 1,
+      "Water": 1,
+      "Grass": 1,
+      "Electric": 1,
+      "Psychic": 2,
+      "Ice": 1,
+      "Dragon": 1,
+      "Dark": 0.5,
+      "Fairy": 0.5
+    },
+    "Fairy": {
+      "Normal": 1,
+      "Fighting": 2,
+      "Flying": 1,
+      "Poison": 0.5,
+      "Ground": 1,
+      "Rock": 1,
+      "Bug": 1,
+      "Ghost": 1,
+      "Steel": 0.5,
+      "Fire": 0.5,
+      "Water": 1,
+      "Grass": 1,
+      "Electric": 1,
+      "Psychic": 1,
+      "Ice": 1,
+      "Dragon": 2,
+      "Dark": 2,
+      "Fairy": 1
+    }
+  },
+  "types": [
+    {
+      "id": 0,
+      "name": "Normal",
+      "color": "#A8A77A",
+      "offense": {
+        "strongAgainst": [],
+        "weakAgainst": [
+          "Rock",
+          "Steel"
+        ],
+        "noEffectAgainst": [
+          "Ghost"
+        ]
+      },
+      "defense": {
+        "weakTo": [
+          "Fighting"
+        ],
+        "resists": [],
+        "immuneTo": [
+          "Ghost"
+        ]
+      }
+    },
+    {
+      "id": 1,
+      "name": "Fighting",
+      "color": "#C22E28",
+      "offense": {
+        "strongAgainst": [
+          "Normal",
+          "Rock",
+          "Steel",
+          "Ice",
+          "Dark"
+        ],
+        "weakAgainst": [
+          "Flying",
+          "Poison",
+          "Bug",
+          "Psychic",
+          "Fairy"
+        ],
+        "noEffectAgainst": [
+          "Ghost"
+        ]
+      },
+      "defense": {
+        "weakTo": [
+          "Flying",
+          "Psychic",
+          "Fairy"
+        ],
+        "resists": [
+          "Rock",
+          "Bug",
+          "Dark"
+        ],
+        "immuneTo": []
+      }
+    },
+    {
+      "id": 2,
+      "name": "Flying",
+      "color": "#8571BE",
+      "offense": {
+        "strongAgainst": [
+          "Fighting",
+          "Bug",
+          "Grass"
+        ],
+        "weakAgainst": [
+          "Rock",
+          "Steel",
+          "Electric"
+        ],
+        "noEffectAgainst": []
+      },
+      "defense": {
+        "weakTo": [
+          "Rock",
+          "Electric",
+          "Ice"
+        ],
+        "resists": [
+          "Fighting",
+          "Bug",
+          "Grass"
+        ],
+        "immuneTo": [
+          "Ground"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Poison",
+      "color": "#A33EA1",
+      "offense": {
+        "strongAgainst": [
+          "Grass",
+          "Fairy"
+        ],
+        "weakAgainst": [
+          "Poison",
+          "Ground",
+          "Rock",
+          "Ghost"
+        ],
+        "noEffectAgainst": [
+          "Steel"
+        ]
+      },
+      "defense": {
+        "weakTo": [
+          "Ground",
+          "Psychic"
+        ],
+        "resists": [
+          "Fighting",
+          "Poison",
+          "Bug",
+          "Grass",
+          "Fairy"
+        ],
+        "immuneTo": []
+      }
+    },
+    {
+      "id": 4,
+      "name": "Ground",
+      "color": "#B1954F",
+      "offense": {
+        "strongAgainst": [
+          "Poison",
+          "Rock",
+          "Steel",
+          "Fire",
+          "Electric"
+        ],
+        "weakAgainst": [
+          "Bug",
+          "Grass"
+        ],
+        "noEffectAgainst": [
+          "Flying"
+        ]
+      },
+      "defense": {
+        "weakTo": [
+          "Water",
+          "Grass",
+          "Ice"
+        ],
+        "resists": [
+          "Poison",
+          "Rock"
+        ],
+        "immuneTo": [
+          "Electric"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "name": "Rock",
+      "color": "#B6A136",
+      "offense": {
+        "strongAgainst": [
+          "Flying",
+          "Bug",
+          "Fire",
+          "Ice"
+        ],
+        "weakAgainst": [
+          "Fighting",
+          "Ground",
+          "Steel"
+        ],
+        "noEffectAgainst": []
+      },
+      "defense": {
+        "weakTo": [
+          "Fighting",
+          "Ground",
+          "Steel",
+          "Water",
+          "Grass"
+        ],
+        "resists": [
+          "Normal",
+          "Flying",
+          "Poison",
+          "Fire"
+        ],
+        "immuneTo": []
+      }
+    },
+    {
+      "id": 6,
+      "name": "Bug",
+      "color": "#808F13",
+      "offense": {
+        "strongAgainst": [
+          "Grass",
+          "Psychic",
+          "Dark"
+        ],
+        "weakAgainst": [
+          "Fighting",
+          "Flying",
+          "Poison",
+          "Ghost",
+          "Steel",
+          "Fire",
+          "Fairy"
+        ],
+        "noEffectAgainst": []
+      },
+      "defense": {
+        "weakTo": [
+          "Flying",
+          "Rock",
+          "Fire"
+        ],
+        "resists": [
+          "Fighting",
+          "Ground",
+          "Grass"
+        ],
+        "immuneTo": []
+      }
+    },
+    {
+      "id": 7,
+      "name": "Ghost",
+      "color": "#735797",
+      "offense": {
+        "strongAgainst": [
+          "Ghost",
+          "Psychic"
+        ],
+        "weakAgainst": [
+          "Dark"
+        ],
+        "noEffectAgainst": [
+          "Normal"
+        ]
+      },
+      "defense": {
+        "weakTo": [
+          "Ghost",
+          "Dark"
+        ],
+        "resists": [
+          "Poison",
+          "Bug"
+        ],
+        "immuneTo": [
+          "Normal",
+          "Fighting"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "name": "Steel",
+      "color": "#8C8C9E",
+      "offense": {
+        "strongAgainst": [
+          "Rock",
+          "Ice",
+          "Fairy"
+        ],
+        "weakAgainst": [
+          "Steel",
+          "Fire",
+          "Water",
+          "Electric"
+        ],
+        "noEffectAgainst": []
+      },
+      "defense": {
+        "weakTo": [
+          "Fighting",
+          "Ground",
+          "Fire"
+        ],
+        "resists": [
+          "Normal",
+          "Flying",
+          "Rock",
+          "Bug",
+          "Steel",
+          "Grass",
+          "Psychic",
+          "Ice",
+          "Dragon",
+          "Fairy"
+        ],
+        "immuneTo": [
+          "Poison"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "name": "Fire",
+      "color": "#EE8130",
+      "offense": {
+        "strongAgainst": [
+          "Bug",
+          "Steel",
+          "Grass",
+          "Ice"
+        ],
+        "weakAgainst": [
+          "Rock",
+          "Fire",
+          "Water",
+          "Dragon"
+        ],
+        "noEffectAgainst": []
+      },
+      "defense": {
+        "weakTo": [
+          "Ground",
+          "Rock",
+          "Water"
+        ],
+        "resists": [
+          "Bug",
+          "Steel",
+          "Fire",
+          "Grass",
+          "Ice",
+          "Fairy"
+        ],
+        "immuneTo": []
+      }
+    },
+    {
+      "id": 11,
+      "name": "Water",
+      "color": "#6390F0",
+      "offense": {
+        "strongAgainst": [
+          "Ground",
+          "Rock",
+          "Fire"
+        ],
+        "weakAgainst": [
+          "Water",
+          "Grass",
+          "Dragon"
+        ],
+        "noEffectAgainst": []
+      },
+      "defense": {
+        "weakTo": [
+          "Grass",
+          "Electric"
+        ],
+        "resists": [
+          "Steel",
+          "Fire",
+          "Water",
+          "Ice"
+        ],
+        "immuneTo": []
+      }
+    },
+    {
+      "id": 12,
+      "name": "Grass",
+      "color": "#62A13D",
+      "offense": {
+        "strongAgainst": [
+          "Ground",
+          "Rock",
+          "Water"
+        ],
+        "weakAgainst": [
+          "Flying",
+          "Poison",
+          "Bug",
+          "Steel",
+          "Fire",
+          "Grass",
+          "Dragon"
+        ],
+        "noEffectAgainst": []
+      },
+      "defense": {
+        "weakTo": [
+          "Flying",
+          "Poison",
+          "Bug",
+          "Fire",
+          "Ice"
+        ],
+        "resists": [
+          "Ground",
+          "Water",
+          "Grass",
+          "Electric"
+        ],
+        "immuneTo": []
+      }
+    },
+    {
+      "id": 13,
+      "name": "Electric",
+      "color": "#CF9A09",
+      "offense": {
+        "strongAgainst": [
+          "Flying",
+          "Water"
+        ],
+        "weakAgainst": [
+          "Grass",
+          "Electric",
+          "Dragon"
+        ],
+        "noEffectAgainst": [
+          "Ground"
+        ]
+      },
+      "defense": {
+        "weakTo": [
+          "Ground"
+        ],
+        "resists": [
+          "Flying",
+          "Steel",
+          "Electric"
+        ],
+        "immuneTo": []
+      }
+    },
+    {
+      "id": 14,
+      "name": "Psychic",
+      "color": "#F95587",
+      "offense": {
+        "strongAgainst": [
+          "Fighting",
+          "Poison"
+        ],
+        "weakAgainst": [
+          "Steel",
+          "Psychic"
+        ],
+        "noEffectAgainst": [
+          "Dark"
+        ]
+      },
+      "defense": {
+        "weakTo": [
+          "Bug",
+          "Ghost",
+          "Dark"
+        ],
+        "resists": [
+          "Fighting",
+          "Psychic"
+        ],
+        "immuneTo": []
+      }
+    },
+    {
+      "id": 15,
+      "name": "Ice",
+      "color": "#65A19E",
+      "offense": {
+        "strongAgainst": [
+          "Flying",
+          "Ground",
+          "Grass",
+          "Dragon"
+        ],
+        "weakAgainst": [
+          "Steel",
+          "Fire",
+          "Water",
+          "Ice"
+        ],
+        "noEffectAgainst": []
+      },
+      "defense": {
+        "weakTo": [
+          "Fighting",
+          "Rock",
+          "Steel",
+          "Fire"
+        ],
+        "resists": [
+          "Ice"
+        ],
+        "immuneTo": []
+      }
+    },
+    {
+      "id": 16,
+      "name": "Dragon",
+      "color": "#6F35FC",
+      "offense": {
+        "strongAgainst": [
+          "Dragon"
+        ],
+        "weakAgainst": [
+          "Steel"
+        ],
+        "noEffectAgainst": [
+          "Fairy"
+        ]
+      },
+      "defense": {
+        "weakTo": [
+          "Ice",
+          "Dragon",
+          "Fairy"
+        ],
+        "resists": [
+          "Fire",
+          "Water",
+          "Grass",
+          "Electric"
+        ],
+        "immuneTo": []
+      }
+    },
+    {
+      "id": 17,
+      "name": "Dark",
+      "color": "#705746",
+      "offense": {
+        "strongAgainst": [
+          "Ghost",
+          "Psychic"
+        ],
+        "weakAgainst": [
+          "Fighting",
+          "Dark",
+          "Fairy"
+        ],
+        "noEffectAgainst": []
+      },
+      "defense": {
+        "weakTo": [
+          "Fighting",
+          "Bug",
+          "Fairy"
+        ],
+        "resists": [
+          "Ghost",
+          "Dark"
+        ],
+        "immuneTo": [
+          "Psychic"
+        ]
+      }
+    },
+    {
+      "id": 23,
+      "name": "Fairy",
+      "color": "#D685AD",
+      "offense": {
+        "strongAgainst": [
+          "Fighting",
+          "Dragon",
+          "Dark"
+        ],
+        "weakAgainst": [
+          "Poison",
+          "Steel",
+          "Fire"
+        ],
+        "noEffectAgainst": []
+      },
+      "defense": {
+        "weakTo": [
+          "Poison",
+          "Steel"
+        ],
+        "resists": [
+          "Fighting",
+          "Bug",
+          "Dark"
+        ],
+        "immuneTo": [
+          "Dragon"
+        ]
+      }
+    }
+  ]
+}

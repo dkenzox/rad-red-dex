@@ -96,6 +96,7 @@ function setupTable(name, displayMethod, maxRows, columns, tieBreaker) {
 	
 	trackers[name] = {};
 	let tracker = trackers[name];
+	tracker.name = name;
 	tracker.body = tbody;
 	tracker.displayMethod = displayMethod;
 	tracker.maxRows = maxRows;

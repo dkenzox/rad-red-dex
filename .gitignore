@@ -2,6 +2,7 @@
 *.s
 .env
 .env.*
+/csv/
 supabase/.temp/
 supabase/.branches/
 src/supabaseConfig.local.js

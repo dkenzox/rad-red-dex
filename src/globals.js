@@ -1,7 +1,10 @@
 let repo = "JwowSquared/Radical-Red-Pokedex";
-let version = "rrdex release 1.2.2";
+let version = "rrdex release 1.2.3";
 
 species = null;
+speciesDetailsById = {};
+speciesDetailsLoaded = false;
+speciesDetailsPromise = null;
 moves = null;
 abilities = null;
 items = null;
@@ -29,6 +32,15 @@ currentSpeciesPanelMon = null;
 accountStatusTimeout = null;
 activeTeamId = null;
 teamVisibilityState = {};
+typeData = null;
+transparentSpriteUrlCache = new Map();
+transparentSpritePromiseCache = new Map();
+worldData = null;
+locationsById = {};
+pokemonAcquisitionsBySpeciesId = {};
+moveAcquisitionsByMoveId = {};
+itemAcquisitionsByItemId = {};
+raidDensBySpeciesId = {};
 
 let trackers = {};
 let filters = {};
